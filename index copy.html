@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KNU ERP - User Manual</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --primary-color: #4f46e5; /* Indigo */
+            --bg-body: #f8fafc;
+            --text-main: #334155;
+            --glass-white: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- Sidebar Styling --- */
+        .docs-sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #ffffff;
+            border-right: 1px solid #e2e8f0;
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .brand-logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-left: 10px;
+        }
+
+        .nav-link {
+            color: #64748b;
+            font-size: 0.95rem;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            background-color: #e0e7ff;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .nav-section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #94a3b8;
+            font-weight: 700;
+            margin: 25px 0 10px 15px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Main Content Area --- */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 40px 60px;
+            max-width: 1200px;
+        }
+
+        /* Documentation Cards */
+        section {
+            scroll-margin-top: 40px; /* Offset for sticky header if needed */
+            margin-bottom: 60px;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        h1 {
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #334155;
+            margin-top: 30px;
+            font-weight: 600;
+        }
+
+        p {
+            line-height: 1.7;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+
+        /* Images (Zoomable) */
+        .screenshot-container {
+            margin: 25px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            background: #f8fafc;
+            text-align: center;
+        }
+        
+        img.zoomable {
+            width: 100%;
+            height: auto;
+            cursor: zoom-in;
+            transition: transform 0.3s;
+        }
+
+        /* Alerts/Notes */
+        .doc-alert {
+            border-left: 4px solid;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f8fafc;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+        
+        .doc-alert.info { border-color: #3b82f6; background: #eff6ff; color: #1e40af; }
+        .doc-alert.warning { border-color: #f59e0b; background: #fef3c7; color: #92400e; }
+        .doc-alert.success { border-color: #22c55e; background: #dcfce7; color: #166534; }
+
+        /* Mobile Responsive */
+        @media (max-width: 991px) {
+            .docs-sidebar {
+                transform: translateX(-100%);
+            }
+            .docs-sidebar.show {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            .mobile-nav-toggle {
+                display: block !important;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1050;
+                background: var(--primary-color);
+                color: white;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: none;
+                box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+            }
+        }
+        .mobile-nav-toggle { display: none; }
+
+    </style>
+</head>
+<body>
+
+    <button class="mobile-nav-toggle" onclick="toggleSidebar()">
+        <i class="bi bi-list fs-4"></i>
+    </button>
+
+    <nav class="docs-sidebar">
+        <a href="#welcome" class="brand-logo text-decoration-none">
+            <i class="bi bi-book-half me-2"></i> KNU Manual
+        </a>
+        
+        <div class="nav flex-column" id="doc-nav">
+            <span class="nav-section-title">Getting Started</span>
+            <a class="nav-link active" href="#welcome">Introduction</a>
+            <a class="nav-link" href="#dashboard">Dashboard Overview</a>
+            
+            <span class="nav-section-title">Student Module</span>
+            <a class="nav-link" href="#enrollment">Student Onboard</a>
+            <a class="nav-link" href="#student-portal">Portal Login</a>
+            <a class="nav-link" href="#registration-form">Registration Form</a>
+            <a class="nav-link" href="#payment">Fee Payment</a>
+            <a class="nav-link" href="#downloads">Certificates</a>
+
+            <span class="nav-section-title">Admin Module</span>
+            <a class="nav-link" href="#principal-dashboard">Principal/HOD</a>
+            <a class="nav-link" href="#approval">Student Approval</a>
+        </div>
+        
+        <div class="mt-5 pt-3 border-top">
+            <small class="text-muted">Version 2.0.5</small> <br>
+            <small class="text-muted">&copy; 2025 KNU ERP</small>
+        </div>
+    </nav>
+
+    <main class="main-content">
+
+        <section id="welcome">
+            <h1>Introduction</h1>
+            <p class="lead">Welcome to the <strong>KNU ERP Management System User Manual</strong>. This documentation is designed to guide students, faculty, and administrators through the various features of the platform.</p>
+            
+            <div class="doc-alert info">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                <strong>Tip:</strong> Use the sidebar on the left to navigate quickly between different modules. Click on any image to zoom in for a better view.
+            </div>
+        </section>
+
+        <section id="dashboard">
+            <h1>Dashboard Overview</h1>
+            <p>The dashboard acts as the central hub for all ERP activities. It provides a quick summary of recent activities and notifications.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-30 192647.png" class="zoomable" alt="KNU ERP Dashboard">
+            </div>
+        </section>
+
+        <section id="enrollment">
+            <h1>Student Onboarding</h1>
+            <p>This section handles the initial data synchronization. Student data is pulled from the central government portal and populated into the KNU ERP system automatically.</p>
+            
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 172840.png" class="zoomable" alt="regfrom">
+            </div>
+            
+            <div class="doc-alert warning">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <strong>Important:</strong> Ensure internet connectivity is stable during the onboarding synchronization process.
+            </div>
+        </section>
+
+        <section id="student-portal">
+            <h1>Student Portal Login</h1>
+            <p>Students can access their personal dashboard using their unique credentials.</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="screenshot-container">
+                        <img src="src/images/Screenshot 2025-12-31 183558.png" class="zoomable" alt="Student Login">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Login Methods</h4>
+                    <ul class="list-group list-group-flush mt-3">
+                        <li class="list-group-item bg-transparent">
+                            <strong>Option 1:</strong> <br>
+                            User: <code>Student ID</code> or <code>App Number</code> <br>
+                            Pass: <code>Application Code</code>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <strong>Option 2 (No ID):</strong> <br>
+                            User: <code>Registered Phone Number</code> <br>
+                            Pass: <code>Application Code</code>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="registration-form">
+            <h1>Completing Registration</h1>
+            <p>Once logged in, students must complete the academic registration form.</p>
+            
+            <h3>Step 1: Dashboard Navigation</h3>
+            <p>Click on the "Registration Form" button visible on the main card.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 184205.png" class="zoomable" alt="Student Dashboard">
+            </div>
+
+            <h3>Step 2: Academic Year Selection</h3>
+            <p>Select the current academic session carefully.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 184448.png" class="zoomable" alt="Academic Year">
+            </div>
+
+            <h3>Step 3: Form Details</h3>
+            <p>Fill in all required fields as shown in the sample below.</p>
+            <div class="screenshot-container">
+                <img src="src/images/screencapture-knuconnectdemo-eazyclasses-oas-registration-index-2025-12-31-18_56_47.png" class="zoomable" alt="Application Form Sample">
+            </div>
+        </section>
+
+        <section id="payment">
+            <h1>Fee Payment</h1>
+            <p>After form submission, the payment gateway becomes active.</p>
+            
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 190458.png" class="zoomable" alt="Registration Payment Page">
+            </div>
+
+            <p>Select your preferred payment method (UPI, Card, Netbanking) and complete the transaction.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 205116.png" class="zoomable" alt="Payment Options">
+            </div>
+            
+            <div class="doc-alert success">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                After payment, a receipt will be generated. Please <strong>Download</strong> and keep it safe.
+            </div>
+            <div class="screenshot-container">
+                <img src="src/images/screencapture-knuconnectdemo-eazyclasses-oas-registration-index-2026-01-02-13_10_54.png" class="zoomable" alt="Receipt">
+            </div>
+        </section>
+
+        <section id="principal-dashboard">
+            <h1>Principal / HOD Module</h1>
+            <p>Administrative heads use this module to verify and approve student applications.</p>
+            
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 211948.png" class="zoomable" alt="Principal Dashboard">
+            </div>
+            
+            <h2 id="approval">Approval Workflow</h2>
+            <ol>
+                <li>Navigate to <strong>Registration > Approve Students</strong>.</li>
+                <li>Use the search filters to find specific batches.</li>
+                <li>Select students using checkboxes.</li>
+                <li>Choose an action: <strong>Approve</strong>, <strong>Return</strong>, or <strong>View</strong>.</li>
+            </ol>
+            
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 212819 action.png" class="zoomable" alt="Action Center">
+            </div>
+        </section>
+
+        <section id="downloads">
+            <h1>Downloads & Certificates</h1>
+            <p>Once approved, students can download their official Registration Certificate from their dashboard.</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Download Button Location:</strong></p>
+                    <div class="screenshot-container">
+                        <img src="src/images/Screenshot 2025-12-31 214236.png" class="zoomable" alt="Download Certificate">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Sample Certificate:</strong></p>
+                    <div class="screenshot-container">
+                        <img src="src/images/Screenshot 2025-12-31 214641.png" class="zoomable" alt="Sample Certificate">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // 1. Initialize Image Zoom
+        mediumZoom('.zoomable', {
+            margin: 24,
+            background: 'rgba(255, 255, 255, 0.95)',
+            scrollOffset: 0
+        });
+
+        // 2. Mobile Sidebar Toggle
+        function toggleSidebar() {
+            document.querySelector('.docs-sidebar').classList.toggle('show');
+        }
+
+        // 3. Highlight Sidebar on Scroll
+        const sections = document.querySelectorAll("section");
+        const navLi = document.querySelectorAll(".docs-sidebar .nav-link");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLi.forEach((li) => {
+                li.classList.remove("active");
+                if (li.getAttribute("href").includes(current)) {
+                    li.classList.add("active");
+                }
+            });
+        });
+
+        // 4. Subtle Entry Animation
+        gsap.registerPlugin(ScrollTrigger);
+        sections.forEach(sec => {
+            gsap.from(sec, {
+                scrollTrigger: {
+                    trigger: sec,
+                    start: "top 90%",
+                },
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power2.out"
+            });
+        });
+
+    </script>
+</body>
+</html>

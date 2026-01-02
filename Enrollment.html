@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Manual - KNU ERP</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Styles Match Registration Page */
+        :root { --sidebar-width: 280px; --primary-color: #166534; --bg-body: #f8fafc; } /* Green Theme for Enrollment */
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: #334155; }
+        
+        /* Sidebar Styling */
+        .docs-sidebar { width: var(--sidebar-width); height: 100vh; position: fixed; top: 0; left: 0; background: #fff; border-right: 1px solid #e2e8f0; overflow-y: auto; padding: 20px; }
+        
+        /* Main Content Styling */
+        .main-content { margin-left: var(--sidebar-width); padding: 40px 60px; max-width: 1200px; }
+        section { scroll-margin-top: 40px; margin-bottom: 60px; background: white; border-radius: 16px; padding: 40px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        
+        /* Typography */
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 2rem;}
+        p { line-height: 1.7; color: #475569; margin-bottom: 20px; }
+        
+        /* Image Styling */
+        .screenshot-container { margin: 25px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; text-align: center; }
+        img.zoomable { width: 100%; height: auto; cursor: zoom-in; transition: transform 0.3s; }
+
+        /* Navigation Links */
+        .nav-link { color: #64748b; padding: 10px 15px; border-radius: 8px; margin-bottom: 4px; font-weight: 500; display: block; text-decoration: none; transition: all 0.2s; }
+        .nav-link:hover, .nav-link.active { background-color: #dcfce7; color: var(--primary-color); }
+        .nav-section-title { font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin: 25px 0 10px 15px; }
+        .back-btn { display: block; margin-bottom: 20px; color: var(--primary-color); font-weight: 600; text-decoration: none; }
+        
+        /* Alert/Note Styling */
+        .doc-alert { padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid; display: flex; align-items: start; gap: 10px;}
+        .doc-alert.info { background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+        .doc-alert.success { background: #dcfce7; border-color: #22c55e; color: #166534; }
+        .doc-alert.warning { background: #fef3c7; border-color: #f59e0b; color: #92400e; }
+        .doc-alert i { font-size: 1.2rem; margin-top: 2px; }
+
+        /* Mobile Responsive */
+        @media (max-width: 991px) {
+            .docs-sidebar { transform: translateX(-100%); transition: transform 0.3s ease; z-index: 1000; }
+            .docs-sidebar.show { transform: translateX(0); }
+            .main-content { margin-left: 0; padding: 20px; }
+            .mobile-nav-toggle { display: block; position: fixed; bottom: 20px; right: 20px; z-index: 1050; background: var(--primary-color); color: white; width: 50px; height: 50px; border-radius: 50%; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        }
+        .mobile-nav-toggle { display: none; }
+    </style>
+</head>
+<body>
+
+    <button class="mobile-nav-toggle" onclick="toggleSidebar()">
+        <i class="bi bi-list fs-4"></i>
+    </button>
+
+    <nav class="docs-sidebar">
+        <a href="Homepage.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back to Home</a>
+        <div class="h5 fw-bold text-dark mb-4 px-2">Enrollment Manual</div>
+        
+        <div class="nav flex-column" id="doc-nav">
+            <span class="nav-section-title">Student Module</span>
+            <a class="nav-link" href="#login-page">Student Login</a>
+            <a class="nav-link" href="#student-dashboard">Dashboard</a>
+            <a class="nav-link" href="#student-enrollment-form">Enrollment Form</a>
+            <a class="nav-link" href="#student-final-view">Final Review</a>
+            <a class="nav-link" href="#payment-page">Fee Payment</a>
+            <a class="nav-link" href="#payment-receipt">Receipt</a>
+
+            <span class="nav-section-title">Principal Module</span>
+            <a class="nav-link" href="#principal-login">Principal Login</a>
+            <a class="nav-link" href="#principal-dashboard">Approval Dashboard</a>
+            <a class="nav-link" href="#enrollment-filters">Search & Filters</a>
+            <a class="nav-link" href="#student-enrollment-list">Approval Action</a>
+
+            <span class="nav-section-title">Admit Card Download</span>
+            <a class="nav-link" href="#student-login-admit">Student Login</a>
+            <a class="nav-link" href="#student-dashboard-admit">Download Admit Card</a>
+            <a class="nav-link" href="#sample-admit-card">Sample Admit Card</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+        <section id="login-page">
+            <h1>Login Page</h1>
+            <p>This page allows students to log in to the ERP system using their registered credentials.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 183558.png" class="zoomable" alt="Student Login Page">
+            </div>
+            <div class="doc-alert info">
+                <i class="bi bi-info-circle-fill"></i>
+                <div>
+                    <strong>Note:</strong> Login using:
+                    <ul class="mt-2 mb-0 ps-3">
+                        <li><strong>Username:</strong> Student Login</li>
+                        <li><strong>Password:</strong> Application Code / Password</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="student-dashboard">
+            <h1>Student Dashboard</h1>
+            <p>After successful login, the dashboard provides access to academic services.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-02 141959.png" class="zoomable" alt="Student Dashboard">
+            </div>
+            <div class="doc-alert info">
+                <i class="bi bi-cursor-fill"></i>
+                <div>
+                    <strong>Action:</strong> Click on the <strong>"Academics cum Examination Enrollment"</strong> button to proceed.
+                </div>
+            </div>
+        </section>
+
+        <section id="student-enrollment-form">
+            <h1>Student Enrollment Form</h1>
+            <p>Complete academic enrollment by selecting subjects and providing required info.</p>
+            <div class="screenshot-container">
+                <img src="src/images/screencapture-knuconnectdemo-eazyclasses-oas-enrollment-enrollment-2026-01-02-14_20_17.png" class="zoomable" alt="Student Enrollment Form">
+            </div>
+            <div class="doc-alert info">
+                <i class="bi bi-pencil-square"></i>
+                <div>
+                    <strong>Note:</strong> Choose subjects per eligibility, fill details carefully, and click <strong>Submit</strong>.
+                </div>
+            </div>
+        </section>
+
+        <section id="student-final-view">
+            <h1>Student Form Final View</h1>
+            <p>Review the final preview of the enrollment form before payment.</p>
+            <div class="screenshot-container">
+                <img src="src/images/screencapture-knuconnectdemo-eazyclasses-oas-enrollment-formFillUp-2026-01-02-14_24_00.png" class="zoomable" alt="Student Final Form View">
+            </div>
+            <div class="doc-alert info">
+                <i class="bi bi-check-square-fill"></i>
+                <div>
+                    <strong>Note:</strong> Select the <strong>"Declaration"</strong> checkbox to confirm accuracy before proceeding to payment.
+                </div>
+            </div>
+        </section>
+
+        <section id="payment-page">
+            <h1>Payment Page</h1>
+            <p>Complete the enrollment process by paying the required fees.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-02 142554.png" class="zoomable" alt="Enrollment Payment Page">
+            </div>
+            <div class="doc-alert info">
+                <i class="bi bi-credit-card-2-front-fill"></i>
+                <div>
+                    <strong>Options:</strong> Pay using UPI, Debit/Credit Card, or Net Banking.
+                </div>
+            </div>
+        </section>
+
+        <section id="payment-receipt">
+            <h1>Payment Receipt Page</h1>
+            <p>Generate and download receipt for future reference.</p>
+            <div class="screenshot-container">
+                <img src="src/images/screencapture-knuconnectdemo-eazyclasses-oas-enrollment-formFillUp-2026-01-02-14_26_39.png" class="zoomable" alt="Payment Receipt Page">
+            </div>
+            <div class="doc-alert success">
+                <i class="bi bi-printer-fill"></i>
+                <div>
+                    <strong>Success:</strong> Click the <strong>Print</strong> button to download the receipt.
+                </div>
+            </div>
+        </section>
+
+        <section id="principal-login">
+            <h1>Login as Principal / HOD</h1>
+            <p>Authorized login for Principal or Head of Department (HOD).</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 183558.png" class="zoomable" alt="Principal Login Page">
+            </div>
+        </section>
+
+        <section id="principal-dashboard">
+            <h1>Principal Dashboard</h1>
+            <p>Administrative dashboard for approvals.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-02 162252.png" class="zoomable" alt="Principal Dashboard">
+            </div>
+            <div class="doc-alert info">
+                <i class="bi bi-diagram-3-fill"></i>
+                <div>
+                    <strong>Navigation:</strong> Go to <strong>"Enrollment"</strong> section and click <strong>"Approve Student"</strong>.
+                </div>
+            </div>
+        </section>
+
+        <section id="enrollment-filters">
+            <h1>Enrollment Search & Filters</h1>
+            <p>Filter student enrollment records for review.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-02 162404.png" class="zoomable" alt="Enrollment Filter Selection">
+            </div>
+            <div class="doc-alert info">
+                <i class="bi bi-funnel-fill"></i>
+                <div>
+                    <strong>Note:</strong> Select course category, discipline, academic session, and semester from dropdowns.
+                </div>
+            </div>
+        </section>
+
+        <section id="student-enrollment-list">
+            <h1>Student Enrollment List</h1>
+            <p>Review list of pending student enrollments.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-02 162540.png" class="zoomable" alt="Student Enrollment List">
+            </div>
+            <div class="doc-alert warning">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <div>
+                    <strong>Available Actions:</strong>
+                    <ul class="mt-2 mb-0 ps-3">
+                        <li><strong>Approve:</strong> Click <strong>"Approve"</strong> to validate enrollment.</li>
+                        <li><strong>Reject (Attendance):</strong> Click <strong>"Reject due to Low Attendance"</strong> if applicable.</li>
+                        <li><strong>Reject (Fees):</strong> Click <strong>"Reject due to Fees Not Paid"</strong> if applicable.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="student-login-admit">
+            <h1>Login as a Student</h1>
+            <p>This page allows students to log in to the ERP system in order to access examination-related services.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 183558.png" class="zoomable" alt="Student Login Page for Admit Card">
+            </div>
+        </section>
+
+        <section id="student-dashboard-admit">
+            <h1>Student Dashboard</h1>
+            <p>After successful login, the student is redirected to the dashboard where examination-related documents are available.</p>
+            <div class="screenshot-container">
+                <img src="src/images/screencapture-knuconnectdemo-eazyclasses-oas-student-dashboard-2026-01-02-17_50_19.png" class="zoomable" alt="Student Dashboard Admit Card">
+            </div>
+            <div class="doc-alert info">
+                <i class="bi bi-download"></i>
+                <div>
+                    <strong>Note:</strong> From the dashboard, the student can download the admit card by clicking the <strong>"Download Admit Card"</strong> button.
+                </div>
+            </div>
+        </section>
+
+        <section id="sample-admit-card">
+            <h1>Sample Admit Card</h1>
+            <p>This section displays a sample format of the admit card generated by the ERP system.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-02 181155.png" class="zoomable" alt="Sample Admit Card">
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>
+        // Initialize Zoom
+        mediumZoom('.zoomable', { margin: 24, background: '#fff' });
+
+        // Sidebar Toggle for Mobile
+        function toggleSidebar() {
+            document.querySelector('.docs-sidebar').classList.toggle('show');
+        }
+
+        // Active Link Highlighter on Scroll
+        const sections = document.querySelectorAll("section");
+        const navLi = document.querySelectorAll(".docs-sidebar .nav-link");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLi.forEach((li) => {
+                li.classList.remove("active");
+                if (li.getAttribute("href").includes(current)) {
+                    li.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

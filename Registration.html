@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Manual - KNU ERP</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Styles Match Enrollment Page */
+        :root { --sidebar-width: 280px; --primary-color: #4f46e5; --bg-body: #f8fafc; } /* Indigo Theme for Registration */
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: #334155; }
+        
+        /* Sidebar Styling */
+        .docs-sidebar { width: var(--sidebar-width); height: 100vh; position: fixed; top: 0; left: 0; background: #fff; border-right: 1px solid #e2e8f0; overflow-y: auto; padding: 20px; }
+        
+        /* Main Content Styling */
+        .main-content { margin-left: var(--sidebar-width); padding: 40px 60px; max-width: 1200px; }
+        section { scroll-margin-top: 40px; margin-bottom: 60px; background: white; border-radius: 16px; padding: 40px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        
+        /* Typography */
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 2rem;}
+        p { line-height: 1.7; color: #475569; margin-bottom: 20px; }
+        
+        /* Image Styling */
+        .screenshot-container { margin: 25px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; text-align: center; }
+        img.zoomable { width: 100%; height: auto; cursor: zoom-in; transition: transform 0.3s; }
+
+        /* Navigation Links */
+        .nav-link { color: #64748b; padding: 10px 15px; border-radius: 8px; margin-bottom: 4px; font-weight: 500; display: block; text-decoration: none; transition: all 0.2s; }
+        .nav-link:hover, .nav-link.active { background-color: #e0e7ff; color: var(--primary-color); }
+        .nav-section-title { font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin: 25px 0 10px 15px; }
+        .back-btn { display: block; margin-bottom: 20px; color: var(--primary-color); font-weight: 600; text-decoration: none; }
+        
+        /* Alert/Note Styling */
+        .doc-alert { padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid; display: flex; align-items: start; gap: 10px;}
+        .doc-alert.info { background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+        .doc-alert.success { background: #dcfce7; border-color: #22c55e; color: #166534; }
+        .doc-alert.warning { background: #fef3c7; border-color: #f59e0b; color: #92400e; }
+        .doc-alert i { font-size: 1.2rem; margin-top: 2px; }
+
+        /* Mobile Responsive */
+        @media (max-width: 991px) {
+            .docs-sidebar { transform: translateX(-100%); transition: transform 0.3s ease; z-index: 1000; }
+            .docs-sidebar.show { transform: translateX(0); }
+            .main-content { margin-left: 0; padding: 20px; }
+            .mobile-nav-toggle { display: block; position: fixed; bottom: 20px; right: 20px; z-index: 1050; background: var(--primary-color); color: white; width: 50px; height: 50px; border-radius: 50%; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        }
+        .mobile-nav-toggle { display: none; }
+    </style>
+</head>
+<body>
+
+    <button class="mobile-nav-toggle" onclick="toggleSidebar()">
+        <i class="bi bi-list fs-4"></i>
+    </button>
+
+    <nav class="docs-sidebar">
+        <a href="Homepage.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back to Home</a>
+        <div class="h5 fw-bold text-dark mb-4 px-2">Registration Manual</div>
+        
+        <div class="nav flex-column" id="doc-nav">
+            <span class="nav-section-title">Getting Started</span>
+            <a class="nav-link" href="#intro">Introduction</a>
+            <a class="nav-link" href="#onboard">Student Onboard</a>
+            
+            <span class="nav-section-title">Student Module</span>
+            <a class="nav-link" href="#login">Portal Login</a>
+            <a class="nav-link" href="#dashboard">Dashboard</a>
+            <a class="nav-link" href="#form">Registration Form</a>
+            <a class="nav-link" href="#payment">Fee Payment</a>
+            <a class="nav-link" href="#receipt">Receipt</a>
+
+            <span class="nav-section-title">Admin Module</span>
+            <a class="nav-link" href="#principal">Principal Approval</a>
+            <a class="nav-link" href="#certificate-download">Download Certificate</a>
+            <a class="nav-link" href="#certificate-sample">Certificate Sample</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+        <section id="intro">
+            <h1>Introduction</h1>
+            <p>Welcome to the Registration Process Manual. This guide covers the initial onboarding and academic registration.</p>
+        </section>
+
+        <section id="onboard">
+            <h1>Student Onboarding</h1>
+            <p>Data synchronization from the government portal into the ERP system.</p>
+
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 172840.png" class="zoomable" alt="Student Onboarding Screen">
+            </div>
+
+            <div class="mt-4 text-center text-md-start">
+                <a href="src/sadasTotalAdmiitedData_LOT5-PENDING 011225-msw1.csv" class="btn btn-outline-primary shadow-sm" download>
+                    <i class="bi bi-file-earmark-spreadsheet-fill me-2"></i>Download Sample CSV File
+                </a>
+            </div>
+
+            <div class="doc-alert info">
+                <i class="bi bi-info-circle-fill"></i>
+                <div>
+                    <strong>Note:</strong> Here is the sample csv file format to be used for uploading student data during the onboarding process.
+                </div>
+            </div>
+        </section>
+
+        <section id="login">
+            <h1>Student Login</h1>
+            <p>Log in using Student ID/Mobile and Application Code.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 183558.png" class="zoomable" alt="Login">
+            </div>
+        </section>
+
+        <section id="dashboard">
+            <h1>Dashboard Overview</h1>
+            <p>Click on <strong>Registration Form</strong> to begin.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 184205.png" class="zoomable" alt="Dashboard">
+            </div>
+        </section>
+
+        <section id="form">
+            <h1>Registration Form</h1>
+            <p>Select Academic Year and fill details.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 184448.png" class="zoomable" alt="Year">
+            </div>
+            <div class="screenshot-container">
+                <img src="src/images/screencapture-knuconnectdemo-eazyclasses-oas-registration-index-2025-12-31-18_56_47.png" class="zoomable" alt="Form">
+            </div>
+        </section>
+
+        <section id="payment">
+            <h1>Registration Fee Payment</h1>
+            <p>Pay the one-time registration fee.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 190458.png" class="zoomable" alt="Payment">
+            </div>
+        </section>
+
+        <section id="receipt">
+            <h1>Payment Receipt</h1>
+            <p>Download the receipt after payment.</p>
+            <div class="screenshot-container">
+                <img src="src/images/screencapture-knuconnectdemo-eazyclasses-oas-registration-index-2026-01-02-13_10_54.png" class="zoomable" alt="Receipt">
+            </div>
+        </section>
+
+        <section id="principal">
+            <h1>Principal Approval</h1>
+            <p>Admin verifies and approves students.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 211948.png" class="zoomable" alt="Principal">
+            </div>
+        </section>
+
+        <section id="certificate-download">
+            <h1>Download Certificate</h1>
+            <p>Once approved, download the Registration Certificate.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 214236.png" class="zoomable" alt="Certificate">
+            </div>
+        </section>
+
+        <section id="certificate-sample">
+            <h1>Certificate Sample</h1>
+            <p>A sample view of the generated registration certificate.</p>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 214641.png" class="zoomable" alt="Sample Certificate">
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>
+        // Initialize Zoom
+        mediumZoom('.zoomable', { margin: 24, background: '#fff' });
+
+        // Sidebar Toggle for Mobile
+        function toggleSidebar() {
+            document.querySelector('.docs-sidebar').classList.toggle('show');
+        }
+
+        // Active Link Highlighter on Scroll
+        const sections = document.querySelectorAll("section");
+        const navLi = document.querySelectorAll(".docs-sidebar .nav-link");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLi.forEach((li) => {
+                li.classList.remove("active");
+                if (li.getAttribute("href").includes(current)) {
+                    li.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

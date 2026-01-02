@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KNU ERP Manuals - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .card { border: none; border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .icon-box { width: 80px; height: 80px; background: #e0e7ff; color: #4f46e5; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 auto 20px; font-size: 2rem; }
+        .icon-box.enroll { background: #dcfce7; color: #166534; }
+        .btn-custom { width: 100%; padding: 12px; border-radius: 8px; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <div class="container text-center">
+        <h1 class="mb-2 fw-bold text-dark">KNU ERP User Manuals</h1>
+        <p class="text-muted mb-5">Select the module you want to learn about</p>
+
+        <div class="row justify-content-center g-4">
+            
+            <div class="col-md-5 col-lg-4">
+                <div class="card p-4 shadow-sm">
+                    <div class="card-body">
+                        <div class="icon-box">
+                            <i class="bi bi-person-plus-fill"></i>
+                        </div>
+                        <h3 class="card-title fw-bold mb-3">Registration Process</h3>
+                        <p class="text-muted mb-4">
+                            Guide for Student Onboarding, Registration Form Fill-up, Fee Payment, and Certificate Download.
+                        </p>
+                        <a href="registration.html" class="btn btn-primary btn-custom">
+                            View Manual <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 col-lg-4">
+                <div class="card p-4 shadow-sm">
+                    <div class="card-body">
+                        <div class="icon-box enroll">
+                            <i class="bi bi-card-checklist"></i>
+                        </div>
+                        <h3 class="card-title fw-bold mb-3">Enrollment Process</h3>
+                        <p class="text-muted mb-4">
+                            Guide for Subject Selection, Academic Enrollment, Final Review, and Enrollment Fee Payment.
+                        </p>
+                        <a href="enrollment.html" class="btn btn-success btn-custom">
+                            View Manual <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <footer class="mt-5 text-muted small">
+            &copy; 2025 KNU ERP System
+        </footer>
+    </div>
+
+</body>
+</html>
