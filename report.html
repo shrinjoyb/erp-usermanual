@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Manual - KNU ERP</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Theme for Report Page */
+        :root { --sidebar-width: 280px; --primary-color: #ea580c; --bg-body: #f8fafc; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: #334155; }
+        
+        /* Sidebar Styling */
+        .docs-sidebar { width: var(--sidebar-width); height: 100vh; position: fixed; top: 0; left: 0; background: #fff; border-right: 1px solid #e2e8f0; overflow-y: auto; padding: 20px; }
+        
+        /* Main Content Styling */
+        .main-content { margin-left: var(--sidebar-width); padding: 40px 60px; max-width: 1200px; }
+        
+        /* Section Styling */
+        section { scroll-margin-top: 40px; margin-bottom: 60px; background: white; border-radius: 16px; padding: 40px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        
+        /* Typography */
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 2rem;}
+        h2 { font-weight: 600; color: #334155; margin-bottom: 1rem; font-size: 1.5rem; margin-top: 2rem; }
+        p { line-height: 1.7; color: #475569; margin-bottom: 20px; }
+        
+        /* Image Styling */
+        .screenshot-container { margin: 25px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; text-align: center; }
+        img.zoomable { width: 100%; height: auto; cursor: zoom-in; transition: transform 0.3s; }
+
+        /* Navigation Links */
+        .nav-link { color: #64748b; padding: 10px 15px; border-radius: 8px; margin-bottom: 4px; font-weight: 500; display: block; text-decoration: none; transition: all 0.2s; cursor: pointer; }
+        .nav-link:hover { background-color: #ffedd5; color: var(--primary-color); }
+        .nav-link.active { background-color: #ffedd5; color: var(--primary-color); }
+        
+        /* Sub-menu Styling (Dropdown) */
+        .submenu-container { 
+            display: none; /* By default Hidden */
+            padding-left: 10px; 
+            background: #fff7ed50; 
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .submenu-container.open { display: block; /* Show when open */ }
+
+        .sub-nav-link { font-size: 0.9rem; padding: 8px 15px 8px 30px; border-left: 2px solid transparent; }
+        .sub-nav-link:hover, .sub-nav-link.active { border-left-color: var(--primary-color); color: var(--primary-color); }
+
+        .nav-section-title { font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin: 25px 0 10px 15px; }
+        .back-btn { display: block; margin-bottom: 20px; color: var(--primary-color); font-weight: 600; text-decoration: none; }
+        
+        /* Alert Styling */
+        .doc-alert { padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid; display: flex; align-items: start; gap: 10px;}
+        .doc-alert.info { background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+        .doc-alert i { font-size: 1.2rem; margin-top: 2px; }
+        
+        /* Separators */
+        .section-divider { border-top: 1px dashed #cbd5e1; margin: 40px 0; }
+
+        /* Icon rotation */
+        .rotate-icon { transition: transform 0.3s ease; }
+        .open .rotate-icon { transform: rotate(180deg); }
+
+        /* Mobile Responsive */
+        @media (max-width: 991px) {
+            .docs-sidebar { transform: translateX(-100%); transition: transform 0.3s ease; z-index: 1000; }
+            .docs-sidebar.show { transform: translateX(0); }
+            .main-content { margin-left: 0; padding: 20px; }
+            .mobile-nav-toggle { display: block; position: fixed; bottom: 20px; right: 20px; z-index: 1050; background: var(--primary-color); color: white; width: 50px; height: 50px; border-radius: 50%; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        }
+        .mobile-nav-toggle { display: none; }
+    </style>
+</head>
+<body>
+
+    <button class="mobile-nav-toggle" onclick="toggleSidebar()">
+        <i class="bi bi-list fs-4"></i>
+    </button>
+
+    <nav class="docs-sidebar">
+        <a href="Homepage.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back to Home</a>
+        <div class="h5 fw-bold text-dark mb-4 px-2">Report Manual</div>
+        
+        <div class="nav flex-column" id="doc-nav">
+            <span class="nav-section-title">General</span>
+            <a class="nav-link" href="#login-page">Login</a>
+            <a class="nav-link" href="#report-section">Report Overview</a>
+            <a class="nav-link" href="#report-dashboard">Dashboard</a>
+            
+            <span class="nav-section-title">Types of Reports</span>
+            <a class="nav-link" href="#registration-report">1. Registration Report</a>
+            
+            <a class="nav-link d-flex justify-content-between align-items-center" 
+               href="#student-form-fillup-status" 
+               onclick="toggleSubmenu('submenu-student', this)">
+                <span>2. Student Form Fill-up Status</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            <div id="submenu-student" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="#search-academic-exam-report">2.1 Search Academic Report</a>
+                <a class="nav-link sub-nav-link" href="#overall-enrollment-report">2.2 Overall Enrollment</a>
+                <a class="nav-link sub-nav-link" href="#student-enrollment-data-excel">2.3 Student Data (Excel)</a>
+            </div>
+
+            <a class="nav-link" href="#dr-sheet-report">3. DR Sheet Report</a>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" 
+               href="#marks-submission-status-report" 
+               onclick="toggleSubmenu('submenu-marks', this)">
+                <span>4. Marks Submission Status</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            <div id="submenu-marks" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="#marks-submission-status-overall">4.1 Overall Report</a>
+                <a class="nav-link sub-nav-link" href="#marks-submission-status-college">4.2 College Specific</a>
+                <a class="nav-link sub-nav-link" href="#marks-particular-discipline">4.3 View Marks</a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" 
+               href="#student-marksheet-download" 
+               onclick="toggleSubmenu('submenu-marksheet', this)">
+                <span>5. Student Marksheet</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            <div id="submenu-marksheet" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="#marksheet-download-filters">5.1 Download & Filters</a>
+                <a class="nav-link sub-nav-link" href="#marksheet-web-view">5.2 Web Result View</a>
+                <a class="nav-link sub-nav-link" href="#marksheet-individual-view">5.3 Individual View</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+        <section id="login-page">
+            <h1>Login Page</h1>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2025-12-31 183558.png" alt="Login Page" class="zoomable">
+            </div>
+            <p>
+                <strong>
+                    Users can log in to the system using valid credentials to access authorized features.
+                </strong>
+            </p>
+        </section>
+
+        <section id="report-section">
+            <h1>Report Section Overview</h1>
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-05 122850.png" alt="Report Section" class="zoomable">
+            </div>
+            <p>
+                <strong>
+                   Users can generate various types of reports from this section according to their specific requirements.
+                </strong>
+            </p>
+        </section>
+
+        <section id="report-dashboard">
+            <h1>Report Dashboard</h1>
+            <div class="screenshot-container">
+                <img src="src/images/screencapture-knuconnectdemo-eazyclasses-oas-report-index-2026-01-05-12_29_16.png" alt="Report Section Dashboard" class="zoomable">
+            </div>
+            <p>
+                <strong>
+                    Through this section, authorized users and administrators can generate and access various reports using the available options.
+                </strong>
+            </p>
+        </section>
+
+        <section id="registration-report">
+            <h1>Registration Report</h1>
+
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-05 124824.png" alt="Registration Report Filters" class="zoomable">
+            </div>
+
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-05 125423.png" alt="Registration Report Output" class="zoomable">
+            </div>
+ 
+            <div class="doc-alert info">
+                <i class="bi bi-info-circle-fill"></i>
+                <div>
+                    <strong>
+                        In this section, authorized users can generate registration report status by selecting the required criteria from the dropdown menus.
+                    </strong>
+                </div>
+            </div>
+
+            <ul class="mt-4">
+                <li class="mb-2">
+                    Generate registration reports based on <strong>College, Course, and Semester</strong>.
+                </li>
+                <li class="mb-2">
+                    Generate an <strong>overall registration report</strong>.
+                </li>
+                <li class="mb-2">
+                    Download <strong>student registration data</strong> in <strong>Excel format</strong>.
+                </li>
+                <li class="mb-2">
+                    Download <strong>Banglar Uchcha Shiksha Portal</strong> registration data in <strong>Excel format</strong>.
+                </li>
+            </ul>
+            
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-05 141609.png" alt="Registration Report Output" class="zoomable">
+            </div>
+            <strong>Here, users can search the registration status by selecting a specific college name.</strong>.
+        </section>
+
+        <section id="student-form-fillup-status">
+            <h1>Student Form Fill-up Status Report</h1>
+
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-05 145449.png" 
+                     alt="Student Form Fill-up Status Report" 
+                     class="zoomable">
+            </div>
+
+            <p>
+                <strong>
+                    In this section, authorized users can search the Academic Cum Examination Enrollment Report by selecting the required options from the dropdown menu.
+                </strong>
+            </p>
+
+            <ul>
+                <li>
+                    Search reports based on <strong>College, Course Category, and Semester</strong>.
+                </li>
+                <li>
+                    Generate an <strong>overall enrollment report</strong>.
+                </li>
+                <li>
+                    Download <strong>student enrollment data</strong> in <strong>Excel format</strong>.
+                </li>
+            </ul>
+
+            <div class="section-divider"></div>
+
+            <div id="search-academic-exam-report" class="scroll-spy-target">
+                <h2>Search Academic Cum Examination Enrollment Report</h2>
+
+                <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 145824.png"
+                         alt="Search Academic Cum Examination Enrollment Report"
+                         class="zoomable">
+                </div>
+
+                <p>
+                    <strong>
+                        To generate the Academic Cum Examination Enrollment Report, users must select the required criteria from the dropdown menus.
+                    </strong>
+                </p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div id="overall-enrollment-report" class="scroll-spy-target">
+                <h2>Overall Enrollment Report</h2>
+
+                <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 145850.png"
+                         alt="Overall Enrollment Report"
+                         class="zoomable">
+                </div>
+
+                <p>
+                    <strong>
+                        To generate the overall enrollment report, users are required to select the relevant options from the dropdown menus.
+                    </strong>
+                </p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div id="student-enrollment-data-excel" class="scroll-spy-target">
+                <h2>Student Enrollment Data (Excel)</h2>
+
+                <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 145915.png"
+                         alt="Student Enrollment Data Excel"
+                         class="zoomable">
+                </div>
+
+                <p>
+                    <strong>
+                        To download the student enrollment data in Excel format, users must select the necessary criteria from the dropdown menus.
+                    </strong>
+                </p>
+            </div>
+
+        </section>
+
+        <section id="dr-sheet-report">
+            <h1>DR Sheet Report</h1>
+
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-05 161205.png"
+                     alt="DR Sheet Download Option"
+                     class="zoomable">
+            </div>
+
+            <p>
+                <strong>
+                    In this section, users can download the DR Sheet by selecting the DR Sheet download option.
+                </strong>
+            </p>
+
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-05 161232.png"
+                     alt="DR Sheet Required Details"
+                     class="zoomable">
+            </div>
+
+            <p>
+                <strong>
+                    To download the DR Sheet, users must fill in all the required details accurately before proceeding.
+                </strong>
+            </p>
+        </section>
+
+        <section id="marks-submission-status-report">
+            <h1>Marks Submission Status Report</h1>
+
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-05 180930.png"
+                     alt="Marks Submission Status Download"
+                     class="zoomable">
+            </div>
+
+            <p>
+                <strong>
+                    In this section, users can download the marks submission status data by clicking the
+                    <em>“Marks Submission”</em> button.
+                </strong>
+            </p>
+
+            <div class="screenshot-container">
+                <img src="src/images/Screenshot 2026-01-05 181332.png"
+                     alt="View Marks Submission Status Options"
+                     class="zoomable">
+            </div>
+
+            <p>
+                <strong>
+                    Users can view the <em>Marks Submission Status</em> records using the following options:
+                </strong>
+            </p>
+
+            <ul>
+                <li>
+                    View the <strong>overall Marks Submission Status report</strong>.
+                </li>
+                <li>
+                    View the <strong>Marks Submission Status for a specific college</strong>.
+                </li>
+            </ul>
+
+            <div class="section-divider"></div>
+
+            <div id="marks-submission-status-overall" class="scroll-spy-target">
+                <h2>Marks Submission Status – Overall Report</h2>
+
+                <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 163853.png"
+                         alt="Marks Submission Status Overall Report"
+                         class="zoomable">
+                </div>
+
+                <p>
+                    <strong>
+                        In the case of the <em>Overall Report</em> option, users must fill in all the required details.
+                        After submitting the details, the following actions can be performed:
+                    </strong>
+                </p>
+
+                <ul>
+                    <li>
+                        Download the <strong>Marks Submission Status</strong> in <strong>Excel format</strong>.
+                    </li>
+                    <li>
+                        View the <strong>Marks Submission Status</strong> using the <strong>Web View</strong> option.
+                    </li>
+                    <li>
+                        Download <strong>Student Marks</strong> in <strong>Excel format</strong>.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div id="marks-submission-status-college" class="scroll-spy-target">
+                <h2>Marks Submission Status for a Specific College</h2>
+
+                <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 163935.png"
+                         alt="Marks Submission Status College Search"
+                         class="zoomable">
+                </div>
+
+                <p>
+                    <strong>
+                        In this section, users must fill in all the required details and click the
+                        <em>“Search”</em> button. Based on the selected criteria, a list of records
+                        will be displayed at the bottom of the page.
+                    </strong>
+                </p>
+
+                <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 175753.png"
+                         alt="Export Marks Submission Status Excel"
+                         class="zoomable">
+                </div>
+
+                <p>
+                    <strong>
+                        Users can generate and download the report in <strong>PDF format</strong>
+                        by clicking the <em>“Export to PDF”</em> button.
+                    </strong>
+                </p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div id="marks-particular-discipline" class="scroll-spy-target">
+                <h2>View Marks for a Particular Discipline</h2>
+
+                <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 175715.png"
+                         alt="View Marks Discipline Options"
+                         class="zoomable">
+                </div>
+
+                <p>
+                    <strong>
+                        From the three-dot (more options) menu, users can view the marks of a specific student
+                        by selecting the <em>“View”</em> option.
+                    </strong>
+                </p>
+
+                <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 175753.png"
+                         alt="Marks for Particular Discipline"
+                         class="zoomable">
+                </div>
+
+                <p>
+                    <strong>
+                        This section displays an example of marks for a particular discipline.
+                    </strong>
+                </p>
+            </div>
+
+        </section>
+
+        <section id="student-marksheet-download">
+            <h1>Student Marksheet Download</h1>
+
+            <div id="marksheet-download-filters" class="scroll-spy-target">
+                <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 185948.png"
+                         alt="Student Marksheet Download Option"
+                         class="zoomable">
+                </div>
+
+                <p>
+                    <strong>
+                        In this section, users can download the student marksheet by clicking the
+                        <em>“Marksheet”</em> option.
+                    </strong>
+                </p>
+
+                <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 191641.png"
+                         alt="Marksheet Filters"
+                         class="zoomable">
+                </div>
+
+                <p>
+                    <strong>
+                        Users must select the required details from the dropdown menus to download
+                        the marksheet data in <strong>Excel format</strong> for a specific academic
+                        session and discipline.
+                    </strong>
+                </p>
+                 <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 190025.png"
+                         alt="Marksheet Filters"
+                         class="zoomable">
+                </div>
+               <strong> <p>This option allows users to retrieve the marksheet of a particular student by providing the student registration number.</p></strong>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div id="marksheet-web-view" class="scroll-spy-target">
+                <h2>Web Result View</h2>
+
+                <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 194941.png"
+                         alt="Marksheet Web View"
+                         class="zoomable">
+                </div>
+
+                <p>
+                    <strong>
+                        Users can also view the marks results directly in the lower section of the web page.
+                    </strong>
+                </p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div id="marksheet-individual-view" class="scroll-spy-target">
+                <h2>Individual Marksheet View</h2>
+
+                <div class="screenshot-container">
+                    <img src="src/images/Screenashot 2026-01-05 190925.png"
+                         alt="View Individual Marksheet"
+                         class="zoomable">
+                </div>
+<p>
+    <strong>
+        By clicking the <em>“Eye”</em> button, users can view the individual marksheet
+        of each student.
+    </strong>
+</p>
+
+<p>
+    <strong>
+        By clicking the <em>“Export to Excel”</em> button, users can download the marksheet data
+        in Excel format.
+    </strong>
+</p>
+
+
+                <div class="screenshot-container">
+                    <img src="src/images/Screenshot 2026-01-05 194503.png"
+                         alt="Dummy Marksheet Example"
+                         class="zoomable">
+                </div>
+
+                <p>
+                    <strong>
+                        The above image shows a sample marksheet for reference purposes.
+                    </strong>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>
+        // Initialize Zoom
+        mediumZoom('.zoomable', { margin: 24, background: '#fff' });
+
+        // Sidebar Toggle for Mobile
+        function toggleSidebar() {
+            document.querySelector('.docs-sidebar').classList.toggle('show');
+        }
+
+        // Toggle Sub-menu Function
+        function toggleSubmenu(menuId, linkElement) {
+            const menu = document.getElementById(menuId);
+            if (menu) {
+                // Toggle visibility class
+                menu.classList.toggle('open');
+                // Toggle arrow rotation class
+                linkElement.classList.toggle('open');
+            }
+        }
+
+        // Active Link Highlighter Code
+        const sections = document.querySelectorAll("section, .scroll-spy-target");
+        const navLi = document.querySelectorAll(".docs-sidebar .nav-link");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLi.forEach((li) => {
+                li.classList.remove("active");
+                if (li.getAttribute("href").includes(current)) {
+                    li.classList.add("active");
+                    
+                    // Auto-open menu logic
+                    if (li.classList.contains('sub-nav-link')) {
+                         const parentMenu = li.closest('.submenu-container');
+                         if(parentMenu && !parentMenu.classList.contains('open')) {
+                             const menuId = parentMenu.getAttribute('id');
+                             const parentLink = document.querySelector(`a[onclick*="${menuId}"]`);
+                             
+                             parentMenu.classList.add('open');
+                             if(parentLink) parentLink.classList.add('open');
+                         }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
