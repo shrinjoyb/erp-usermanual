@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabulation Register</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Common Inner Page Styles */
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; padding: 40px 60px; }
+        
+        /* Section Styling */
+        section { background: white; border-radius: 16px; padding: 40px; border: 1px solid #e2e8f0; margin-bottom: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        
+        /* Typography */
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 2rem;}
+        h2 { font-weight: 600; color: #334155; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; }
+        p, li { line-height: 1.7; color: #475569; margin-bottom: 15px; }
+        
+        /* Image Styling */
+        .screenshot-container { margin: 25px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; text-align: center; }
+        img { width: 100%; height: auto; cursor: zoom-in; }
+        
+        /* Divider */
+        .section-divider { border-top: 1px dashed #cbd5e1; margin: 40px 0; }
+        
+        /* Alert Box */
+        .doc-alert { padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid; display: flex; align-items: start; gap: 10px; background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+
+        /* List Styling */
+        .custom-list { padding-left: 20px; }
+        .custom-list li { margin-bottom: 10px; }
+
+        /* --- ADDED FOR EXCEL DOWNLOAD --- */
+        .download-card {
+            background: #f0fdf4;
+            border: 2px dashed #198754;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin: 25px 0;
+            cursor: pointer;
+        }
+        .download-card:hover {
+            background: #dcfce7;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(25, 135, 84, 0.1);
+        }
+        .excel-icon {
+            font-size: 4rem;
+            color: #198754;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1 id="tabulation_header">Tabulation Register</h1>
+
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-06 185117.png" alt="Tabulation Register Menu" class="zoomable">
+        </div>
+        <p>
+            <strong>In this section, users can download the marksheet records for a specific batch.</strong>
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2 id="tabulation_search">Search Marksheet</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-06 185144.png" alt="Search Marksheet Page" class="zoomable">
+        </div>
+        
+        <p>
+            Here, users must select all the required details from the dropdown menus (e.g., Session, Course, Semester) to retrieve the desired marksheet data.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2 id="tabulation_actions">Report Format & Actions</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-06 190205.png" alt="Report Format Options" class="zoomable">
+        </div>
+        
+        <p>
+            After selecting all the required details and clicking the <span class="badge bg-primary">Search</span> button, the following options will appear:
+        </p>
+
+        <div class="p-4 bg-light rounded border border-light-subtle">
+            <ul class="custom-list mb-0">
+                <li>
+                    <strong>View in Web:</strong> Click this button to preview the result directly in the browser.
+                </li>
+                <li>
+                    <strong>Download Excel:</strong> Click this button to download the result in Excel format (.xlsx).
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2 id="tabulation_sample">Sample Data in Web</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-06 185540.png" alt="Sample Tabulation Data Web View" class="zoomable">
+        </div>
+        
+        <p>
+            This is a sample view of the tabulation marksheet data displayed on the web interface. Users can verify the data here before downloading.
+        </p>
+
+        <div class="doc-alert">
+            <i class="bi bi-file-earmark-excel-fill"></i>
+            <div>
+                <strong>Export Feature:</strong> Use the "Download Excel" button shown in the interface to get this data in a spreadsheet format for offline use.
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2 id="tabulation_download">Download Sample File</h2>
+        
+        <a href="../src/file/TR BBA - 1.xls" download class="text-decoration-none">
+            <div class="download-card">
+                <i class="bi bi-file-earmark-excel-fill excel-icon"></i>
+                <h4 class="text-success fw-bold">Download Sample Excel</h4>
+                <p class="mb-0 text-secondary">Click here to download the Tabulation Register Sample (.xlsx)</p>
+            </div>
+        </a>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>mediumZoom('.zoomable', { margin: 24, background: '#fff' });</script>
+</body>
+</html>

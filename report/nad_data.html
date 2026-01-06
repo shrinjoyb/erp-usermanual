@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAD Data Report</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Common Inner Page Styles from Statistical Report */
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; padding: 40px 60px; }
+        
+        /* Section Styling */
+        section { background: white; border-radius: 16px; padding: 40px; border: 1px solid #e2e8f0; margin-bottom: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        
+        /* Typography */
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 2rem;}
+        h2 { font-weight: 600; color: #334155; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; }
+        p { line-height: 1.7; color: #475569; margin-bottom: 20px; }
+        
+        /* Image Styling */
+        .screenshot-container { margin: 25px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; text-align: center; }
+        img { width: 100%; height: auto; cursor: zoom-in; }
+        
+        /* Divider */
+        .section-divider { border-top: 1px dashed #cbd5e1; margin: 40px 0; }
+        
+        /* Alert Box */
+        .doc-alert { padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid; display: flex; align-items: start; gap: 10px; background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1 id="nad_data_header">NAD Data</h1>
+
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-06 162204.png" alt="NAD Data Menu Option" class="zoomable">
+        </div>
+        <p>
+            <strong>By clicking this option from the main menu, users can initiate the process to download the NAD data.</strong>
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2 id="required_details">Fill Required Details</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-06 162229.png" alt="NAD Data Filter Page" class="zoomable">
+        </div>
+        
+        <p><strong> 
+            On this page, users must select all the required details from the dropdown menus to retrieve the correct data.
+            </strong>
+        </p>
+
+        <div class="doc-alert">
+            <i class="bi bi-info-circle-fill"></i>
+            <div>
+                <strong>Important:</strong> After selecting the details, click the <em>“Search”</em> button. Once processed, you will be able to download the NAD data in <strong>Excel format</strong>.
+            </div>
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>mediumZoom('.zoomable', { margin: 24, background: '#fff' });</script>
+</body>
+</html>

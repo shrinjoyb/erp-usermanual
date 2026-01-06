@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Manual - KNU ERP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root { --sidebar-width: 280px; --primary-color: #ea580c; --bg-body: #f8fafc; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); overflow: hidden; height: 100vh; }
+        
+        .docs-sidebar { width: var(--sidebar-width); height: 100vh; position: fixed; top: 0; left: 0; background: #fff; border-right: 1px solid #e2e8f0; overflow-y: auto; padding: 20px; z-index: 1000;}
+        
+        .nav-link { color: #64748b; padding: 10px 15px; border-radius: 8px; margin-bottom: 4px; font-weight: 500; display: block; text-decoration: none; transition: all 0.2s; cursor: pointer; }
+        .nav-link:hover { background-color: #fff7ed; color: var(--primary-color); }
+        .nav-link.active { background-color: #ffedd5; color: var(--primary-color); font-weight: 600; border-right: 3px solid var(--primary-color); }
+        
+        .sub-nav-link { font-size: 0.9rem; padding: 8px 15px 8px 30px; border-left: 2px solid transparent; }
+        .sub-nav-link.active { border-left-color: var(--primary-color); background-color: transparent; color: var(--primary-color); border-right: none; }
+
+        .nav-section-title { font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin: 25px 0 10px 15px; }
+        .back-btn { display: block; margin-bottom: 20px; color: var(--primary-color); font-weight: 600; text-decoration: none; }
+        
+        .submenu-container { display: none; padding-left: 10px; background: #fff7ed50; border-radius: 8px; margin-bottom: 10px; }
+        .submenu-container.open { display: block; }
+
+        .rotate-icon { transition: transform 0.3s ease; }
+        .nav-link.open .rotate-icon { transform: rotate(180deg); }
+
+        .main-content { margin-left: var(--sidebar-width); height: 100vh; padding: 0; background: var(--bg-body); }
+        iframe { width: 100%; height: 100%; border: none; display: block; }
+
+        @media (max-width: 991px) {
+            .docs-sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            .docs-sidebar.show { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+            .mobile-nav-toggle { display: block; position: fixed; bottom: 20px; right: 20px; z-index: 1050; background: var(--primary-color); color: white; width: 50px; height: 50px; border-radius: 50%; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        }
+        .mobile-nav-toggle { display: none; }
+    </style>
+</head>
+<body>
+
+    <button class="mobile-nav-toggle" onclick="toggleSidebar()"><i class="bi bi-list fs-4"></i></button>
+
+    <nav class="docs-sidebar">
+        <a href="../homepage/index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back to Home</a>
+        <div class="h5 fw-bold text-dark mb-4 px-2">Report Manual</div>
+        
+        <div class="nav flex-column">
+            
+            <span class="nav-section-title">General</span>
+            <a class="nav-link active" href="report_overview.html#login-page" target="content-frame" onclick="setActive(this)">Login Page</a>
+            <a class="nav-link" href="report_overview.html#report-section" target="content-frame" onclick="setActive(this)">Report Overview</a>
+            <a class="nav-link" href="report_overview.html#report-dashboard" target="content-frame" onclick="setActive(this)">Report Dashboard</a>
+            
+            <span class="nav-section-title">Types of Reports</span>
+            
+            <a class="nav-link" href="report_registration.html" target="content-frame" onclick="setActive(this)">1. Registration Report</a>
+            
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-form', this)">
+                <span>2. Form Fill-up Status</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            <div id="submenu-form" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="report_form_fillup.html#Academimic_Enrollment" target="content-frame" onclick="setActiveSub(this)">2.1 Academic cum Examination Enrollment </a>
+                <a class="nav-link sub-nav-link" href="report_form_fillup.html#search-academic-exam-report" target="content-frame" onclick="setActiveSub(this)">2.2 Search Report</a>
+                <a class="nav-link sub-nav-link" href="report_form_fillup.html#overall-enrollment-report" target="content-frame" onclick="setActiveSub(this)">2.3 Overall Enrollment Report</a>
+                <a class="nav-link sub-nav-link" href="report_form_fillup.html#student-enrollment-data-excel" target="content-frame" onclick="setActiveSub(this)">2.4 Student Data (Excel)</a>
+            </div>
+
+            <a class="nav-link" href="report_dr_sheet.html" target="content-frame" onclick="setActive(this)">3. DR Sheet Report</a>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-marks', this)">
+                <span>4. Marks Submission</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            <div id="submenu-marks" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="report_marks_submission.html#marks-submission-status-overall" target="content-frame" onclick="setActiveSub(this)">4.1 Overall Report</a>
+                <a class="nav-link sub-nav-link" href="report_marks_submission.html#marks-submission-status-college" target="content-frame" onclick="setActiveSub(this)">4.2 College Specific</a>
+                <a class="nav-link sub-nav-link" href="report_marks_submission.html#marks-particular-discipline" target="content-frame" onclick="setActiveSub(this)">4.3 View Marks</a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-sheet', this)">
+                <span>5. Student Marksheet</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            <div id="submenu-sheet" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="report_marksheet.html" target="content-frame" onclick="setActiveSub(this)">5.1 Download & Filters</a>
+                <a class="nav-link sub-nav-link" href="report_marksheet.html#marksheet-web-view" target="content-frame" onclick="setActiveSub(this)">5.2 Web Result View</a>
+                <a class="nav-link sub-nav-link" href="report_marksheet.html#marksheet-individual-view" target="content-frame" onclick="setActiveSub(this)">5.3 Individual View</a>
+                <a class="nav-link sub-nav-link" href="report_marksheet.html#marksheet-sample" target="content-frame" onclick="setActiveSub(this)">5.4 Marksheet sample</a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-stat', this)">
+                <span>6. Statistical Report</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            <div id="submenu-stat" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="statistical_report.html#report_homepage" target="content-frame" onclick="setActiveSub(this)">6.1 View Report</a>
+                <a class="nav-link sub-nav-link" href="statistical_report.html#required_details" target="content-frame" onclick="setActiveSub(this)">6.2 Report Page</a>
+                <a class="nav-link sub-nav-link" href="statistical_report.html#sample_report" target="content-frame" onclick="setActiveSub(this)">6.3 Sample Report</a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-nad', this)">
+                <span>7. NAD Data</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            <div id="submenu-nad" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="nad_data.html#nad_data_header" target="content-frame" onclick="setActiveSub(this)">7.1 Access NAD Data</a>
+                <a class="nav-link sub-nav-link" href="nad_data.html#required_details" target="content-frame" onclick="setActiveSub(this)">7.2 Filter & Download</a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-payment', this)">
+                <span>8. Payment Report</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            <div id="submenu-payment" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="payment_report.html#payment_header" target="content-frame" onclick="setActiveSub(this)">8.1 Access Report</a>
+                <a class="nav-link sub-nav-link" href="payment_report.html#payment_details" target="content-frame" onclick="setActiveSub(this)">8.2 Required Details</a>
+                <a class="nav-link sub-nav-link" href="payment_report.html#payment_result" target="content-frame" onclick="setActiveSub(this)">8.3 Search Result</a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-review', this)">
+                <span>9. Review Request Report</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            <div id="submenu-review" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="review_request_report.html#review_header" target="content-frame" onclick="setActiveSub(this)">9.1 Access Report</a>
+                <a class="nav-link sub-nav-link" href="review_request_report.html#review_sample" target="content-frame" onclick="setActiveSub(this)">9.2 Sample View</a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-tabulation', this)">
+                <span>10. Tabulation Register</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            <div id="submenu-tabulation" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="tabulation_register_report.html#tabulation_header" target="content-frame" onclick="setActiveSub(this)">10.1 Access Register</a>
+                <a class="nav-link sub-nav-link" href="tabulation_register_report.html#tabulation_search" target="content-frame" onclick="setActiveSub(this)">10.2 Search Marksheet</a>
+                <a class="nav-link sub-nav-link" href="tabulation_register_report.html#tabulation_actions" target="content-frame" onclick="setActiveSub(this)">10.3 Report Format</a>
+                <a class="nav-link sub-nav-link" href="tabulation_register_report.html#tabulation_sample" target="content-frame" onclick="setActiveSub(this)">10.4 Sample Data in Excel Format</a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-attendance', this)">
+                <span>11. Attendance & Top Sheet</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            <div id="submenu-attendance" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="attendance_top_sheet.html#attendance_header" target="content-frame" onclick="setActiveSub(this)">11.1 Access Sheet</a>
+                <a class="nav-link sub-nav-link" href="attendance_top_sheet.html#attendance_generate" target="content-frame" onclick="setActiveSub(this)">11.2 Generate Sheets</a>
+                <a class="nav-link sub-nav-link" href="attendance_top_sheet.html#attendance_download" target="content-frame" onclick="setActiveSub(this)">11.3 Download Action</a>
+                <a class="nav-link sub-nav-link" href="attendance_top_sheet.html#attendance_sample" target="content-frame" onclick="setActiveSub(this)">11.4 View Sheet Sample File</a>
+                <a class="nav-link sub-nav-link" href="attendance_top_sheet.html#attendance_sample" target="content-frame" onclick="setActiveSub(this)">11.5 Attendance Sheet Sample</a>
+                <a class="nav-link sub-nav-link" href="attendance_top_sheet.html#attendance_sample" target="content-frame" onclick="setActiveSub(this)">11.6 Top Sheet Sample</a>
+            </div>
+
+        </div> </nav>
+
+    <main class="main-content">
+        <iframe src="report_overview.html" name="content-frame"></iframe>
+    </main>
+
+    <script>
+        function toggleSidebar() { document.querySelector('.docs-sidebar').classList.toggle('show'); }
+        function setActive(element) {
+            document.querySelectorAll('.nav-link, .sub-nav-link').forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+        }
+        function setActiveSub(element) {
+            document.querySelectorAll('.nav-link, .sub-nav-link').forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+            const parentContainer = element.closest('.submenu-container');
+            if (parentContainer) {
+                const parentId = parentContainer.id;
+                const parentToggle = document.querySelector(`a[onclick*="${parentId}"]`);
+                if (parentToggle) parentToggle.classList.add('active');
+            }
+        }
+        function toggleSubmenu(menuId, linkElement) {
+            const menu = document.getElementById(menuId);
+            if (menu) { menu.classList.toggle('open'); linkElement.classList.toggle('open'); }
+        }
+    </script>
+</body>
+</html>
