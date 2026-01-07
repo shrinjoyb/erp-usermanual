@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Setter Module Manual</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Exact Design from Review Request Report */
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; padding: 40px 60px; }
+        
+        /* Section Styling */
+        section { background: white; border-radius: 16px; padding: 40px; border: 1px solid #e2e8f0; margin-bottom: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        
+        /* Typography */
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 2rem;}
+        h2 { font-weight: 600; color: #334155; margin-top: 0; margin-bottom: 1rem; font-size: 1.5rem; }
+        h4 { font-weight: 600; color: #334155; margin-top: 1.5rem; }
+        p, li { line-height: 1.7; color: #475569; margin-bottom: 15px; }
+        
+        /* Image Styling */
+        .screenshot-container { margin: 25px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; text-align: center; }
+        img { width: 100%; height: auto; cursor: zoom-in; }
+        
+        /* Download Card Styling */
+        .download-card {
+            background: #f0fdf4; 
+            border: 2px dashed #198754; 
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin: 25px 0;
+            cursor: pointer;
+            max-width: 600px;
+        }
+        .download-card:hover {
+            background: #dcfce7;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(25, 135, 84, 0.1);
+        }
+        .excel-icon {
+            font-size: 3rem;
+            color: #198754;
+            margin-bottom: 10px;
+        }
+
+        /* Divider */
+        .section-divider { border-top: 1px dashed #cbd5e1; margin: 40px 0; }
+        
+        /* Alert Box */
+        .doc-alert { padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid; display: flex; align-items: start; gap: 10px; background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+    </style>
+</head>
+<body>
+
+    <section id="dashboard">
+        <h1>Paper Setter Module</h1>
+        
+        <h2>1. Paper Setter List</h2>
+
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 130308.png" alt="Paper Setter Dashboard View" class="zoomable">
+        </div>
+        
+        <p>
+            The dashboard serves as the central repository for managing examiner data. It displays a comprehensive <strong>Paper Setter List</strong> containing all registered personnel currently in the system.
+        </p>
+
+        <div class="doc-alert">
+            <i class="bi bi-gear-fill fs-5"></i>
+            <div>
+                <strong>Available Actions:</strong>
+                <ul class="mb-0 mt-2">
+                    <li><strong>Export Data:</strong> Users can download the entire list in Excel format by clicking the <span class="badge bg-success">Export to Excel</span> button.</li>
+                    <li><strong>Search Records:</strong> Locate specific paper setters quickly using the <strong>Search</strong> option.</li>
+                    <li><strong>Manage Records:</strong> Users can update details or remove a setter using the <span class="badge bg-warning text-dark">Edit</span> and <span class="badge bg-danger">Delete</span> buttons respectively.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="add-setter">
+        <h2>2. Add Paper Setter</h2>
+        
+        <div class="screenshot-container">
+             <img src="../src/images/Screenshot 2026-01-07 135127.png" alt="Add Paper Setter Button Highlighted" class="zoomable">
+        </div>
+
+        <p>
+            To onboard a new examiner, navigate to the top right corner of the dashboard and click the <strong>"Add Paper Setter"</strong> button. This action will redirect you to the registration interface.
+        </p>
+    </section>
+
+    <section id="form-upload">
+        <h2>3. Paper setter Add Form </h2>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 131846.png" alt="Registration Form" class="zoomable">
+        </div>
+         <strong>
+        <p>
+            The registration form allows the user to input all necessary details to create a new paper setter profile manually. Ensure all mandatory fields are filled correctly before submission.
+        </p>
+       </strong>
+        <div class="section-divider"></div>
+
+        <h3 id="bulk-upload">Bulk Upload via Excel</h3>
+        <p>
+            For adding multiple paper setters simultaneously, the system provides a Bulk Upload feature.
+        </p>
+
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 131826.png" alt="Excel Upload Interface" class="zoomable">
+        </div>
+
+        <div class="doc-alert" style="background: #fff7ed; border-color: #ea580c; color: #9a3412;">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <div>
+                <strong>Prerequisite:</strong> Users must download the specific Excel template provided below to ensure data compatibility.
+            </div>
+        </div>
+
+        <a href="../src/file/paperSetterTemplate.xlsx" download style="text-decoration: none;">
+            <div class="download-card mx-auto">
+                <i class="bi bi-file-earmark-excel-fill excel-icon"></i>
+                <h5 class="text-success fw-bold">Download Excel Template</h5>
+                <p class="mb-0 text-secondary small">Click here to download the Paper Setter Template (.xlsx)</p>
+            </div>
+        </a>
+
+        <p class="fw-bold mt-4">Steps to Upload:</p>
+        <ol>
+            <li>Fill in the required details for all setters in the downloaded Excel sheet.</li>
+            <li>Click the <strong>"Choose File"</strong> button and select the prepared file from your system.</li>
+            <li>Finally, click <strong>"Upload File"</strong> to complete the batch registration process.</li>
+        </ol>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>mediumZoom('.zoomable', { margin: 24, background: '#fff' });</script>
+</body>
+</html>

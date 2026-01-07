@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Module - QPMS</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Consistent Design with Previous Modules */
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; padding: 40px 60px; }
+        
+        /* Section Styling */
+        section { background: white; border-radius: 16px; padding: 40px; border: 1px solid #e2e8f0; margin-bottom: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        
+        /* Typography */
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 2rem;}
+        h2 { font-weight: 600; color: #334155; margin-top: 0; margin-bottom: 1rem; font-size: 1.5rem; }
+        h4 { font-weight: 600; color: #334155; margin-top: 2rem; margin-bottom: 1rem; }
+        p, li { line-height: 1.7; color: #475569; margin-bottom: 15px; }
+        
+        /* Image Styling */
+        .screenshot-container { margin: 25px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; text-align: center; }
+        img { width: 100%; height: auto; cursor: zoom-in; }
+        
+        /* Alert/Note Box */
+        .doc-alert { padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid; display: flex; align-items: start; gap: 10px; background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+        
+        /* Divider */
+        .section-divider { border-top: 1px dashed #cbd5e1; margin: 40px 0; }
+    </style>
+</head>
+<body>
+
+    <section id="download-menu">
+        <h1 id = "home_page">QPMS Download</h1>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 150235.png" alt="QPMS Download Menu Selection" class="zoomable">
+        </div>
+
+        <p>
+            This section allows users to access various download-related features within the Question Paper Management System (QPMS). Upon selecting this option, the user is presented with multiple download functionalities.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2 id = "dashboard_main">Download Dashboard</h2>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 163119.png" alt="Download Dashboard View" class="zoomable">
+        </div>
+        
+        <p>
+            The Download Dashboard acts as the central interface for managing downloadable question paper resources. From this dashboard, the user can perform the following actions:
+        </p>
+        
+        <ul class="list-group list-group-flush border rounded">
+            <li class="list-group-item bg-light"><i class="bi bi-file-earmark-code me-2 text-danger"></i> <strong>1. Font & Blank Question Format:</strong> Manage and upload blank templates.</li>
+            <li class="list-group-item bg-light"><i class="bi bi-clock-history me-2 text-danger"></i> <strong>2. Previous Year Question Paper:</strong> Repository for past question papers.</li>
+        </ul>
+    </section>
+
+    <section id="blank-format">
+        <h2>Font and Blank Question Paper Format</h2>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 150259.png" alt="Upload Question Paper Format Interface" class="zoomable">
+        </div>
+
+        <p>
+            This section enables the user to upload the approved question paper format, including font settings and layout structure, as prescribed by the university.
+        </p>
+
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 163446.png" alt="List of Uploaded Formats" class="zoomable">
+        </div>
+        
+        <p>
+            The uploaded format will be used as the standard template for preparing question papers.
+        </p>
+    </section>
+
+    <section id="pyq-section">
+        <h2>Previous Year Question Paper Section</h2>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 162638.png" alt="Previous Year Question Paper Section Overview" class="zoomable">
+        </div>
+
+        <p>
+            This section provides access to previously submitted question papers from earlier sessions, allowing users to review and reference historical question papers.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h4 id="search_paper">Search Papers</h4>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 165550.png" alt="Search Previous Year Papers" class="zoomable">
+        </div>
+        
+        <p>
+            From this screen, the user can search for previous year question papers by filling in the required details such as session, course, and subject.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h4 id="add_paper">Add New Paper</h4>
+        
+        <p>
+            The user can also add a new previous year question paper manually by clicking the <strong>"Add"</strong> button<strong> (Which is highlited in previous page.)</strong>
+        </p>
+
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 165327.png" alt="Add Previous Year Paper Button" class="zoomable">
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h4 id="bulk_upload">Bulk Upload</h4>
+        
+        <p>
+            For uploading multiple records at once, the user can use the <strong>"Bulk Upload"</strong> option.
+        </p>
+
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 164020.png" alt="Bulk Upload Interface" class="zoomable">
+        </div>
+
+        <div class="doc-alert" style="background-color: #fff7ed; border-color: #ea580c; color: #9a3412;">
+            <i class="bi bi-exclamation-circle-fill fs-5"></i>
+            <div>
+                <strong>Upload Instructions:</strong>
+                <p class="mb-2 mt-1">In this process, the user must:</p>
+                <ol class="mb-0">
+                    <li>Select the appropriate <strong>Session</strong> from the dropdown list.</li>
+                    <li>Upload a <strong>ZIP file</strong> containing the question papers.</li>
+                    <li>Click the <strong>"Upload"</strong> button to complete the process.</li>
+                </ol>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>mediumZoom('.zoomable', { margin: 24, background: '#fff' });</script>
+</body>
+</html>

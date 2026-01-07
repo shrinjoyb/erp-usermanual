@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Status Module - QPMS</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Consistent Design with Previous Modules */
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; padding: 40px 60px; }
+        
+        /* Section Styling */
+        section { background: white; border-radius: 16px; padding: 40px; border: 1px solid #e2e8f0; margin-bottom: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        
+        /* Typography */
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 2rem;}
+        h2 { font-weight: 600; color: #334155; margin-top: 0; margin-bottom: 1rem; font-size: 1.5rem; }
+        p, li { line-height: 1.7; color: #475569; margin-bottom: 15px; }
+        
+        /* Image Styling */
+        .screenshot-container { margin: 25px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; text-align: center; }
+        img { width: 100%; height: auto; cursor: zoom-in; }
+        
+        /* Alert Box */
+        .doc-alert { padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid; display: flex; align-items: start; gap: 10px; background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+        
+        /* Divider */
+        .section-divider { border-top: 1px dashed #cbd5e1; margin: 40px 0; }
+    </style>
+</head>
+<body>
+
+    <section id="overview">
+        <h1>QP Upload Status</h1>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 180022.png" alt="QP Upload Status Menu Selection" class="zoomable">
+        </div>
+
+        <p>
+            This section allows the user to view the overall status of question paper uploads within the system. It provides a centralized dashboard to track submission progress across different subjects and courses.
+        </p>
+    </section>
+
+    <section id="search-status">
+        <h2>Question Paper Upload Status Report</h2>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 180112.png" alt="Upload Status Search Filter" class="zoomable">
+        </div>
+
+        <p>
+            This screen displays the detailed question paper upload status report. To view specific records, the user can search for question papers by filling in the required details (e.g., Session, Exam Type, Subject) in the filter fields.
+        </p>
+    </section>
+
+    <section id="list-view">
+        <h2>Question Paper List View</h2>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 184334.png" alt="Question Paper List View" class="zoomable">
+        </div>
+
+        <p>
+            This section displays the list of question papers along with their current submission status. The system uses visual indicators to denote progress.
+        </p>
+
+        <div class="doc-alert" style="background-color: #f0fdf4; border-color: #16a34a; color: #14532d;">
+            <i class="bi bi-info-circle-fill fs-5"></i>
+            <div>
+                <strong>Status Indicators & Actions:</strong>
+                <ul class="mb-0 mt-2">
+                    <li class="mb-2">
+                        <span class="badge bg-success me-2">Green Mark</span> 
+                        Denotes that the question paper has been <strong>successfully submitted</strong> by the setter.
+                    </li>
+                    <li class="mb-2">
+                        <span class="badge bg-light text-dark border me-2">White Mark</span> 
+                        Denotes that the question paper has <strong>not yet been submitted</strong>.
+                    </li>
+                    <li>
+                        <strong>Action:</strong> The administrator can extend the upload deadline for a specific paper by clicking the <span class="badge bg-primary text-white">Extend</span> option.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>mediumZoom('.zoomable', { margin: 24, background: '#fff' });</script>
+</body>
+</html>

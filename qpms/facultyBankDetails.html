@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Bank Details - QPMS</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Consistent Design with Previous QPMS Modules */
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; padding: 40px 60px; }
+        
+        /* Section Styling */
+        section { background: white; border-radius: 16px; padding: 40px; border: 1px solid #e2e8f0; margin-bottom: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        
+        /* Typography */
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 2rem;}
+        h2 { font-weight: 600; color: #334155; margin-top: 0; margin-bottom: 1rem; font-size: 1.5rem; }
+        p, li { line-height: 1.7; color: #475569; margin-bottom: 15px; }
+        
+        /* Image Styling */
+        .screenshot-container { margin: 25px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; text-align: center; }
+        img { width: 100%; height: auto; cursor: zoom-in; }
+        
+        /* Alert/Note Box */
+        .doc-alert { padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid; display: flex; align-items: start; gap: 10px; background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+        
+        /* Divider */
+        .section-divider { border-top: 1px dashed #cbd5e1; margin: 40px 0; }
+    </style>
+</head>
+<body>
+
+    <section id="bank-overview">
+        <h1>Faculty Bank Details</h1>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 185417.png" alt="Faculty Bank Details Selection" class="zoomable">
+        </div>
+
+        <p>
+            This section allows the user to access and view the banking information of faculty members registered within the system. It ensures that administrative users can verify payment-related details efficiently.
+        </p>
+    </section>
+
+    <section id="bank-dashboard">
+        <h2>Faculty Bank Details Dashboard</h2>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 185519.png" alt="Bank Details Dashboard Search" class="zoomable">
+        </div>
+
+        <p>
+            The Faculty Bank Details Dashboard provides a search interface for locating specific employee records. 
+        </p>
+
+        <div class="doc-alert">
+            <i class="bi bi-search fs-5"></i>
+            <div>
+                <strong>Search Functionality:</strong>
+                <p class="mb-0 mt-1">
+                    Users can filter the database by filling in required fields such as <strong> Academic Session</strong>, <strong>Semester</strong> etc.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="bank-list">
+        <h2>Employee Bank Details List</h2>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 190917.png" alt="Sample Employee Bank Details List" class="zoomable">
+        </div>
+         <strong> 
+        <p>
+            This section displays the generated list of employee bank details based on the search criteria. It serves as a reference for verifying account numbers, IFSC codes, and bank names associated with each faculty member.
+        </p>
+        </strong>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>mediumZoom('.zoomable', { margin: 24, background: '#fff' });</script>
+</body>
+</html>

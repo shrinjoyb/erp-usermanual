@@ -1,0 +1,102 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewer Management - QPMS</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Consistent Design with Previous QPMS Modules */
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; padding: 40px 60px; }
+        
+        /* Section Styling */
+        section { background: white; border-radius: 16px; padding: 40px; border: 1px solid #e2e8f0; margin-bottom: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        
+        /* Typography */
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 2rem;}
+        h2 { font-weight: 600; color: #334155; margin-top: 0; margin-bottom: 1rem; font-size: 1.5rem; }
+        p, li { line-height: 1.7; color: #475569; margin-bottom: 15px; }
+        
+        /* Image Styling */
+        .screenshot-container { margin: 25px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; text-align: center; }
+        img { width: 100%; height: auto; cursor: zoom-in; }
+        
+        /* Alert/Note Box */
+        .doc-alert { padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid; display: flex; align-items: start; gap: 10px; background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+        
+        /* Divider */
+        .section-divider { border-top: 1px dashed #cbd5e1; margin: 40px 0; }
+    </style>
+</head>
+<body>
+
+    <section id="viewer-dashboard">
+        <h1>Question Paper Viewer Management</h1>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 193643.png" alt="Question Paper Viewer List Dashboard" class="zoomable">
+        </div>
+
+        <p>
+            This module facilitates the management of users authorized to view question papers. After clicking this option from the main dashboard, the user is redirected to the <strong>Question Paper Viewer List</strong> dashboard.
+        </p>
+    </section>
+
+    <section id="add-viewer-btn">
+        <h2>Initiate New Viewer Registration</h2>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 193712.png" alt="Add New Question Paper Viewer Button" class="zoomable">
+        </div>
+
+        <p>
+            From this section, the administrator can start the process of onboarding a new viewer by clicking the <strong>"Add New Question Paper Viewer"</strong> button located on the interface.
+        </p>
+    </section>
+
+    <section id="add-viewer-form">
+        <h2>Add Viewer Form</h2>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 193726.png" alt="Add Question Paper Viewer Form" class="zoomable">
+        </div>
+
+        <p>
+            In this section, the user can register a new viewer. The system requires the user to select the appropriate details (such as Faculty Name, Department, etc.) from the provided dropdown menus to ensure accurate assignment.
+        </p>
+    </section>
+
+    <section id="viewer-list">
+        <h2>Question Paper Viewer List</h2>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 193815.png" alt="Question Paper Viewer List View" class="zoomable">
+        </div>
+
+        <p>
+            This section displays the complete list of assigned question paper viewers. Administrators can manage these records directly from the list view.
+        </p>
+
+        <div class="doc-alert" style="background-color: #f0fdf4; border-color: #16a34a; color: #14532d;">
+            <i class="bi bi-tools fs-5"></i>
+            <div>
+                <strong>Management Actions:</strong>
+                <p class="mb-0 mt-1">
+                    Users can perform the following actions on existing records:
+                </p>
+                <ul class="mb-0 mt-2">
+                    <li><i class="bi bi-pencil-square text-primary me-2"></i> <strong>Edit:</strong> Modify the details of a viewer.</li>
+                    <li><i class="bi bi-trash3-fill text-danger me-2"></i> <strong>Delete:</strong> Remove a viewer from the system permanently.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>mediumZoom('.zoomable', { margin: 24, background: '#fff' });</script>
+</body>
+</html>

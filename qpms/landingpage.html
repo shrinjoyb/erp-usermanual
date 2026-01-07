@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QPMS Manual - KNU ERP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Changed primary color to RED for QPMS theme */
+        :root { --sidebar-width: 280px; --primary-color: #dc2626; --bg-body: #f8fafc; }
+        
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); overflow: hidden; height: 100vh; }
+        
+        .docs-sidebar { width: var(--sidebar-width); height: 100vh; position: fixed; top: 0; left: 0; background: #fff; border-right: 1px solid #e2e8f0; overflow-y: auto; padding: 20px; z-index: 1000;}
+        
+        .nav-link { color: #64748b; padding: 10px 15px; border-radius: 8px; margin-bottom: 4px; font-weight: 500; display: block; text-decoration: none; transition: all 0.2s; cursor: pointer; }
+        
+        /* Adjusted hover/active colors for Red Theme */
+        .nav-link:hover { background-color: #fef2f2; color: var(--primary-color); }
+        .nav-link.active { background-color: #fee2e2; color: var(--primary-color); font-weight: 600; border-right: 3px solid var(--primary-color); }
+        
+        .sub-nav-link { font-size: 0.9rem; padding: 8px 15px 8px 30px; border-left: 2px solid transparent; }
+        .sub-nav-link.active { border-left-color: var(--primary-color); background-color: transparent; color: var(--primary-color); border-right: none; }
+
+        .nav-section-title { font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin: 25px 0 10px 15px; }
+        .back-btn { display: block; margin-bottom: 20px; color: var(--primary-color); font-weight: 600; text-decoration: none; }
+        
+        .submenu-container { display: none; padding-left: 10px; background: #fff7ed50; border-radius: 8px; margin-bottom: 10px; }
+        .submenu-container.open { display: block; }
+
+        .rotate-icon { transition: transform 0.3s ease; }
+        .nav-link.open .rotate-icon { transform: rotate(180deg); }
+
+        .main-content { margin-left: var(--sidebar-width); height: 100vh; padding: 0; background: var(--bg-body); }
+        iframe { width: 100%; height: 100%; border: none; display: block; }
+
+        @media (max-width: 991px) {
+            .docs-sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            .docs-sidebar.show { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+            .mobile-nav-toggle { display: block; position: fixed; bottom: 20px; right: 20px; z-index: 1050; background: var(--primary-color); color: white; width: 50px; height: 50px; border-radius: 50%; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        }
+        .mobile-nav-toggle { display: none; }
+    </style>
+</head>
+<body>
+
+    <button class="mobile-nav-toggle" onclick="toggleSidebar()"><i class="bi bi-list fs-4"></i></button>
+
+    <nav class="docs-sidebar">
+        <a href="../homepage/index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back to Home</a>
+        <div class="h5 fw-bold text-dark mb-4 px-2">QPMS Manual</div>
+        
+        <div class="nav flex-column">
+            
+            <span class="nav-section-title">General</span>
+            
+            <a class="nav-link active" href="overview.html#login-page" target="content-frame" onclick="setActive(this)">Login Page</a>
+            
+            <a class="nav-link" href="overview.html#qpms-section" target="content-frame" onclick="setActive(this)">QPMS Section</a>
+            
+            <a class="nav-link" href="overview.html#qpms-options" target="content-frame" onclick="setActive(this)">QPMS Options </a>
+            
+            
+            <span class="nav-section-title">Modules</span>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-paper-setter', this)">
+                <span>1. Paper Setter Module</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            
+            <div id="submenu-paper-setter" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="paperSetter.html#dashboard" target="content-frame" onclick="setActiveSub(this)">
+                    1.1 Dashboard Overview
+                </a>
+                <a class="nav-link sub-nav-link" href="paperSetter.html#add-setter" target="content-frame" onclick="setActiveSub(this)">
+                    1.2 Initiate Registration
+                </a>
+                <a class="nav-link sub-nav-link" href="paperSetter.html#form-upload" target="content-frame" onclick="setActiveSub(this)">
+                    1.3 Form & Bulk Upload
+                </a>
+                <a class="nav-link sub-nav-link" href="paperSetter.html#bulk-upload" target="content-frame" onclick="setActiveSub(this)">
+                    1.4 Bulk Upload
+                </a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-appointment', this)">
+                <span>2. Appointment Letter</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            
+            <div id="submenu-appointment" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="appointmentLetter.html#overview" target="content-frame" onclick="setActiveSub(this)">
+                    2.1 Overview & Search
+                </a>
+                <a class="nav-link sub-nav-link" href="appointmentLetter.html#appointment-list" target="content-frame" onclick="setActiveSub(this)">
+                    2.2 Appointment List
+                </a>
+                <a class="nav-link sub-nav-link" href="appointmentLetter.html#actions" target="content-frame" onclick="setActiveSub(this)">
+                    2.3 View & Send Mail
+                </a>
+                <a class="nav-link sub-nav-link" href="appointmentLetter.html#sample-letter" target="content-frame" onclick="setActiveSub(this)">
+                    2.4 Sample Letter
+                </a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-download', this)">
+                <span>3. Download Module</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            
+            <div id="submenu-download" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="download.html#download-menu" target="content-frame" onclick="setActiveSub(this)">
+                    3.1 QPMS Download
+                </a>
+                <a class="nav-link sub-nav-link" href="download.html#download-menu" target="content-frame" onclick="setActiveSub(this)">
+                    3.2 Download Dashboard
+                </a>
+                <a class="nav-link sub-nav-link" href="download.html#blank-format" target="content-frame" onclick="setActiveSub(this)">
+                    3.3 Font & Blank Format
+                </a>
+                <a class="nav-link sub-nav-link" href="download.html#pyq-section" target="content-frame" onclick="setActiveSub(this)">
+                    3.4 Previous Year Papers
+                </a>
+                <a class="nav-link sub-nav-link" href="download.html#search_paper" target="content-frame" onclick="setActiveSub(this)">
+                    3.5 Search Paper
+                </a>
+                <a class="nav-link sub-nav-link" href="download.html#bulk_upload" target="content-frame" onclick="setActiveSub(this)">
+                    3.6 Add & Bulk Upload
+                </a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-upload-status', this)">
+                <span>4. QP Upload Status</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            
+            <div id="submenu-upload-status" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="qustionPaperUploadStatus.html#overview" target="content-frame" onclick="setActiveSub(this)">
+                    4.1 Status Overview
+                </a>
+                <a class="nav-link sub-nav-link" href="qustionPaperUploadStatus.html#search-status" target="content-frame" onclick="setActiveSub(this)">
+                    4.2 Search Report
+                </a>
+                <a class="nav-link sub-nav-link" href="qustionPaperUploadStatus.html#list-view" target="content-frame" onclick="setActiveSub(this)">
+                    4.3 List View & Actions
+                </a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-bank-details', this)">
+                <span>5. Faculty Bank Details</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            
+            <div id="submenu-bank-details" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="facultyBankDetails.html#bank-overview" target="content-frame" onclick="setActiveSub(this)">
+                    5.1 Bank Details Overview
+                </a>
+                <a class="nav-link sub-nav-link" href="facultyBankDetails.html#bank-dashboard" target="content-frame" onclick="setActiveSub(this)">
+                    5.2 Search Dashboard
+                </a>
+                <a class="nav-link sub-nav-link" href="facultyBankDetails.html#bank-list" target="content-frame" onclick="setActiveSub(this)">
+                    5.3 Employee List
+                </a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-view-paper', this)">
+                <span>6. View Question Paper</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            
+            <div id="submenu-view-paper" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="viewQustionPaper.html#view-dashboard" target="content-frame" onclick="setActiveSub(this)">
+                    6.1 Dashboard Access
+                </a>
+                <a class="nav-link sub-nav-link" href="viewQustionPaper.html#search-paper" target="content-frame" onclick="setActiveSub(this)">
+                    6.2 Search Interface
+                </a>
+                <a class="nav-link sub-nav-link" href="viewQustionPaper.html#paper-list" target="content-frame" onclick="setActiveSub(this)">
+                    6.3 List & Download
+                </a>
+            </div>
+
+            <a class="nav-link d-flex justify-content-between align-items-center" href="#" onclick="toggleSubmenu('submenu-viewer-list', this)">
+                <span>7. QP Viewer List</span>
+                <i class="bi bi-chevron-down rotate-icon fs-6"></i>
+            </a>
+            
+            <div id="submenu-viewer-list" class="submenu-container">
+                <a class="nav-link sub-nav-link" href="qustionPaperViewerList.html#viewer-dashboard" target="content-frame" onclick="setActiveSub(this)">
+                    7.1 Dashboard Access
+                </a>
+                <a class="nav-link sub-nav-link" href="qustionPaperViewerList.html#add-viewer-btn" target="content-frame" onclick="setActiveSub(this)">
+                    7.2 Add Viewer
+                </a>
+                <a class="nav-link sub-nav-link" href="qustionPaperViewerList.html#add-viewer-form" target="content-frame" onclick="setActiveSub(this)">
+                    7.3 Registration Form
+                </a>
+                <a class="nav-link sub-nav-link" href="qustionPaperViewerList.html#viewer-list" target="content-frame" onclick="setActiveSub(this)">
+                    7.4 Viewer List
+                </a>
+            </div>
+            </div> 
+    </nav>
+
+    <main class="main-content">
+        <iframe src="overview.html" name="content-frame"></iframe>
+    </main>
+
+    <script>
+        function toggleSidebar() { document.querySelector('.docs-sidebar').classList.toggle('show'); }
+        
+        function setActive(element) {
+            document.querySelectorAll('.nav-link, .sub-nav-link').forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+        }
+        
+        function setActiveSub(element) {
+            document.querySelectorAll('.nav-link, .sub-nav-link').forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+            
+            const parentContainer = element.closest('.submenu-container');
+            if (parentContainer) {
+                const parentId = parentContainer.id;
+                const parentToggle = document.querySelector(`a[onclick*="${parentId}"]`);
+                if (parentToggle) parentToggle.classList.add('active');
+            }
+        }
+        
+        function toggleSubmenu(menuId, linkElement) {
+            const menu = document.getElementById(menuId);
+            if (menu) { 
+                menu.classList.toggle('open'); 
+                linkElement.classList.toggle('open'); 
+            }
+        }
+    </script>
+</body>
+</html>

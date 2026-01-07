@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Overview</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; padding: 40px 60px; }
+        section { scroll-margin-top: 40px; margin-bottom: 60px; background: white; border-radius: 16px; padding: 40px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 2rem;}
+        p { line-height: 1.7; color: #475569; margin-bottom: 20px; }
+        .screenshot-container { margin: 25px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; text-align: center; }
+        img.zoomable { width: 100%; height: auto; cursor: zoom-in; }
+    </style>
+</head>
+<body>
+    <section id="login-page">
+        <h1>Login Page</h1>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2025-12-31 183558.png" alt="Login Page" class="zoomable">
+        </div>
+        <p><strong>Users can log in to the system using valid credentials to access authorized features.</strong></p>
+    </section>
+
+    <section id="qpms-section">
+        <h1>QPMS Section in the Dashboard</h1>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 123623.png" alt="Report Section" class="zoomable">
+        </div>
+        <p><strong>Users can generate various types of reports from this section according to their specific requirements.</strong></p>
+    </section>
+
+    <section id="qpms-options">
+        <h1>QPMS Section Overview</h1>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-07 123942.png" alt="Report Section Dashboard" class="zoomable">
+        </div>
+        <p><strong>Through this section, authorized users and administrators can generate and access various reports using the available options.</strong></p>
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>mediumZoom('.zoomable', { margin: 24, background: '#fff' });</script>
+</body>
+</html>
