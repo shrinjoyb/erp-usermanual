@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moderator Management - QPMS</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Consistent Design with Previous Modules */
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; padding: 40px 60px; }
+        
+        /* Section Styling */
+        section { background: white; border-radius: 16px; padding: 40px; border: 1px solid #e2e8f0; margin-bottom: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        
+        /* Typography */
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 2rem;}
+        h2 { font-weight: 600; color: #334155; margin-top: 0; margin-bottom: 1rem; font-size: 1.5rem; }
+        h3 { font-weight: 600; color: #475569; font-size: 1.25rem; margin-top: 25px; margin-bottom: 15px; }
+        p, li { line-height: 1.7; color: #475569; margin-bottom: 15px; }
+        
+        /* Image Styling */
+        .screenshot-container { margin: 25px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; text-align: center; }
+        img { width: 100%; height: auto; cursor: zoom-in; }
+        
+        /* Alert Box */
+        .doc-alert { padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid; display: flex; align-items: start; gap: 10px; background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+        
+        /* Divider */
+        .section-divider { border-top: 1px dashed #cbd5e1; margin: 40px 0; }
+    </style>
+</head>
+<body>
+
+    <section id="mod-overview">
+        <h1>Moderator Section</h1>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 121338.png" alt="Moderator dashboard menu" class="zoomable">
+        </div>
+
+        <p>
+            This module allows administrators to manage exam moderators. By clicking on the <strong>Moderator</strong> option in the main dashboard, the user is redirected to the dedicated Moderator Dashboard.
+        </p>
+    </section>
+
+    <section id="mod-search">
+        <h2>Search Moderators</h2>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 121440.png" alt="Moderator search section" class="zoomable">
+        </div>
+
+        <p>
+            In this section, the user can search for existing moderators within the system. Simply select the required criteria from the dropdown filters and click the <span class="badge bg-primary">Search</span> button to view results.
+        </p>
+    </section>
+
+    <section id="mod-add">
+        <h2>Adding Moderators</h2>
+        
+        <h3>1. Individual Registration</h3>
+        <p>
+            To register a single moderator manually, the user can click the <strong>Add Moderator</strong> button. This will open the registration form.
+        </p>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 132834.png" alt="Add individual moderator" class="zoomable">
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h3>2. Bulk Upload (Import)</h3>
+        <p>
+            For adding multiple moderators at once, the system supports a bulk import feature via Excel. Click the <strong>Import Moderator</strong> button to begin.
+        </p>
+        
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 121514.png" alt="Import moderator option" class="zoomable">
+        </div>
+
+        <div class="doc-alert" style="background-color: #fffbeb; border-color: #f59e0b; color: #92400e; margin-bottom: 25px;">
+            <i class="bi bi-lightbulb-fill fs-5"></i>
+            <div>
+                <strong>Prerequisite:</strong> 
+                Before uploading, please download the system-generated Excel template. Ensure that the column headers are not modified and data is entered in the correct format to prevent import errors.
+            </div>
+        </div>
+
+        <p>
+            Once the import option is selected, the upload interface will appear as shown below:
+        </p>
+
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 121812.png" alt="Download and upload moderator template" class="zoomable">
+        </div>
+
+        <p>
+            <strong>Steps for Bulk Upload:</strong>
+            <ol>
+                <li>Download the moderator upload template in <strong>Excel format</strong> by clicking the download icon.</li>
+                <li>Fill in the required details in the Excel sheet and save the file.</li>
+                <li>Use the <strong>Choose File</strong> option to select the completed Excel file from your system.</li>
+                <li>Select the appropriate <strong>Session</strong> from the dropdown menu.</li>
+                <li>Click <strong>Upload File</strong> to complete the bulk registration process.</li>
+            </ol>
+        </p>
+    </section>
+
+    <section id="mod-actions">
+        <h2>Moderator List & Actions</h2>
+        
+        <p>
+            The Moderator List section displays all registered moderators. Use the controls provided in the list view to manage accounts.
+        </p>
+
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 134604.png" alt="Moderator list actions" class="zoomable">
+        </div>
+
+        <div class="doc-alert" style="background-color: #eff6ff; border-color: #3b82f6; color: #1e3a8a;">
+            <i class="bi bi-gear-fill fs-5"></i>
+            <div>
+                <strong>Available Actions:</strong>
+                <ul class="mb-0 mt-2">
+                    <li class="mb-2">
+                        <strong>Appointment Letters:</strong> Click <span class="badge bg-success">Send</span> to email the appointment letter to the moderator, or click <span class="badge bg-info text-dark">View</span> to preview the document.
+                    </li>
+                    <li class="mb-2">
+                        <strong>Edit Details:</strong> Click the <span class="badge bg-warning text-dark">Edit</span> icon/button to modify a moderator's information.
+                    </li>
+                    <li>
+                        <strong>Remove User:</strong> Click the <span class="badge bg-danger">Delete</span> option to remove a moderator from the system.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="mod-letter-sample">
+        <h2>Appointment Letter Sample</h2>
+        
+        <p>
+            Below is a sample view of the Appointment Letter / Edit interface.
+        </p>
+
+        <div class="screenshot-container">
+             <img src="../src/images/screencapture-knuconnectdemo-eazyclasses-oas-questionPaperManagement-viewAppointmentLetterModerator-1384-2026-01-08-13_51_23.png" alt="Edit and delete moderator" class="zoomable">
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>mediumZoom('.zoomable', { margin: 24, background: '#fff' });</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Student Module</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #f8fafc; 
+            color: #334155; 
+            padding: 40px 60px; 
+        }
+        
+        section { 
+            background: white; 
+            border-radius: 16px; 
+            padding: 40px; 
+            border: 1px solid #e2e8f0; 
+            margin-bottom: 40px; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; font-size: 2rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px;}
+        h2 { font-weight: 600; color: #1e293b; margin-top: 1rem; margin-bottom: 1rem; font-size: 1.5rem; }
+        /* Added h3 style for the new sub-heading */
+        h3 { font-weight: 600; color: #334155; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.25rem; }
+        
+        .screenshot-container { 
+            margin: 25px 0; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            border: 1px solid #e2e8f0; 
+            background: #f8fafc; 
+            text-align: center; 
+        }
+        
+        img { width: 100%; height: auto; }
+        .section-divider { border-top: 1px dashed #cbd5e1; margin: 40px 0; }
+        
+        /* New Professional Styles */
+        p, li { line-height: 1.8; color: #475569; font-size: 1.05rem; }
+        
+        /* UI Element Highlight (looks like a button/field in text) */
+        .ui-tag {
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.9em;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Note Box for important info */
+        .note-box {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #1e40af;
+        }
+        
+        .bi { font-size: 1.1em; }
+    </style>
+</head>
+<body>
+    <section>
+        
+        <h1 id="search_student_section">Search Student Section</h1>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 144915.png" alt="Search student section">
+        </div>
+        <p>
+            Navigate to the <span class="ui-tag"><i class="bi bi-people-fill"></i> Students List</span> dashboard from the user menu. This section serves as the central hub for managing student records.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2 id="students_list_dashboard">"Students List" Dashboard</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 160511.png" alt="Students list dashboard">
+        </div>
+        <p>
+            The dashboard provides two primary methods to locate student records efficiently:
+        </p>
+        <ul>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Method 1:</strong> Search using specific student details.</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Method 2:</strong> Filter students based on academic discipline.</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2 id="search_by_details">Search Student By Details</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 145017.png" alt="Search student by details">
+        </div>
+        <p>
+            To find a specific student, use the <span class="ui-tag"><i class="bi bi-search"></i> Search By Details</span> panel.
+        </p>
+        <div class="note-box">
+            <i class="bi bi-info-circle-fill me-2"></i> <strong>Note:</strong> Ensure all dropdown fields are selected correctly to fetch accurate results.
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2 id="search_by_discipline">Search Student By Discipline</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 145033.png" alt="Search student by discipline">
+        </div>
+        <p>
+            Use this section to filter lists of students belonging to a specific course or semester. Select the appropriate options from the <span class="ui-tag"><i class="bi bi-filter"></i> Dropdown Filters</span>.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2 id="add_student">Add New Student</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 145135.png" alt="Add student">
+        </div>
+        <p>
+            To onboard a new student, click the <span class="ui-tag"><i class="bi bi-person-plus-fill"></i> Add Student</span> button located at the top right.
+        </p>
+        <p>
+            You will be redirected to the registration form where you must manually populate all required fields (Personal Info, Academic Details, etc.) to complete the process.
+        </p>
+
+        <h3>Add User</h3>
+        <div class="screenshot-container">
+            <img src="../src/images/screencapture-knuconnectdemo-eazyclasses-oas-userCreation-createUser-2026-01-08-14_51_50.png" alt="Add User Form">
+        </div>
+        <div class="note-box">
+            <i class="bi bi-info-circle-fill me-2"></i> <strong>Note:</strong> User can fillup all the data in the form to add a new user.
+        </div>
+        <div class="section-divider"></div>
+
+        <h2 id="student_list">Student List Results</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 161848.png" alt="Student list">
+        </div>
+        <p>
+            The table below displays the search results. You can view key information such as  Name , collage, Award status here.
+        </p>
+            <p>
+             By clicking the action button icon in the list, the user can perform actions against the selected student.
+        </p>
+        
+        <div class="section-divider"></div>
+
+        <h2 id="action_button">Manage Student Actions</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 163132.png" alt="Student list action buttons">
+        </div>
+        <p>
+            Clicking the <span class="ui-tag"><i class="bi bi-three-dots-vertical"></i> Action</span> button reveals a dropdown menu with the following options:
+        </p>
+        <ul class="list-unstyled ps-3">
+            <li class="mb-2">
+                <span class="ui-tag"><i class="bi bi-pencil-square"></i> Edit Course Details</span> - Update academic information.
+            </li>
+            <li>
+                <span class="ui-tag"><i class="bi bi-person-lines-fill"></i> Edit Personal Details</span> - Update profile information like address or contact info.
+            </li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2 id="edit_course">Edit Course Application</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-08 145412.png" alt="Edit course apply">
+        </div>
+        <p>
+            In this interface, authorized users can modify the student's applied courses or subject combinations. Don't forget to click <span class="ui-tag"><i class="bi bi-save"></i> Save</span> after making changes.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2 id="personal_details">Edit Personal Details</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/screencapture-knuconnectdemo-eazyclasses-oas-userCreation-editUser-24408-2026-01-08-16_33_47.png" alt="Edit personal details">
+        </div>
+        <p>
+            This section allows for the correction or update of sensitive personal data such as Date of Birth, Guardian Name, or Address.
+        </p>
+
+    </section>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Teacher Module</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #f8fafc; 
+            color: #334155; 
+            padding: 40px 60px; 
+        }
+        
+        section { 
+            background: white; 
+            border-radius: 16px; 
+            padding: 40px; 
+            border: 1px solid #e2e8f0; 
+            margin-bottom: 40px; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        
+        h1 { font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; font-size: 2rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px;}
+        h2 { font-weight: 600; color: #1e293b; margin-top: 1rem; margin-bottom: 1rem; font-size: 1.5rem; scroll-margin-top: 20px; }
+        
+        .screenshot-container { 
+            margin: 25px 0; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            border: 1px solid #e2e8f0; 
+            background: #f8fafc; 
+            text-align: center; 
+            min-height: 200px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        img { width: 100%; height: auto; }
+        .section-divider { border-top: 1px dashed #cbd5e1; margin: 40px 0; }
+        
+        /* Professional Typography */
+        p, li { line-height: 1.8; color: #475569; font-size: 1.05rem; }
+        
+        /* UI Element Highlight */
+        .ui-tag {
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.9em;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            vertical-align: middle;
+            transition: all 0.2s;
+        }
+        .ui-tag:hover { border-color: #94a3b8; background-color: #e2e8f0; }
+
+        /* Note Box */
+        .note-box {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #1e40af;
+        }
+        
+        .bi { font-size: 1.1em; }
+    </style>
+</head>
+<body>
+    <section>
+        
+        <h1 id="search_teacher_section">2. Search Teacher Module</h1>
+        
+        <h2 id="search_section">2.1 Search Teacher Section</h2>
+        <div class="screenshot-container">
+            <img src="../src/images/Screenshot 2026-01-09 124633.png" alt="Search Teacher Section">
+        </div>
+        <p>
+            Navigate to the <span class="ui-tag"><i class="bi bi-person-video3"></i> Teachers</span> module. This section allows users to search for teachers using available search options.
+            Users can quickly locate teacher records based on predefined criteria such as Department, Designation, or Name.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2 id="teachers_list">2.2 Teachers List Dashboard</h2>
+        <div class="screenshot-container">
+             <img src="../src/images/Screenshot 2026-01-09 132055.png" alt="Teachers List Dashboard">
+        </div>
+        <p>
+            This dashboard displays the complete list of registered teachers in a grid view. From here, you can manage records efficiently.
+        </p>
+        
+        <p>
+            Key operational capabilities within this dashboard include:
+        </p>
+        <ul class="list-unstyled ps-3">
+            <li class="mb-3">
+                <i class="bi bi-plus-circle-fill text-primary me-2"></i> 
+                <strong>Add New Records:</strong> Users can register new faculty members into the system by clicking the <span class="ui-tag"><i class="bi bi-person-plus-fill"></i> Add Teacher</span> button.
+            </li>
+            
+            <li class="mb-3">
+                <i class="bi bi-pencil-square text-warning me-2"></i> 
+                <strong>Modify Details:</strong> Existing teacher profiles can be updated or corrected by selecting the <span class="ui-tag"><i class="bi bi-pencil"></i> Edit</span> option from the action menu.
+            </li>
+
+            <li class="mb-3">
+                <i class="bi bi-search text-success me-2"></i> 
+                <strong>Quick Search:</strong> Specific teacher records can be instantly located by entering keywords in the dedicated <span class="ui-tag"><i class="bi bi-search"></i> Search Field</span>.
+            </li>
+        </ul>
+        <div class="section-divider"></div>
+
+        <h2 id="add_teacher">2.3 Add New Teacher</h2>
+        <div class="screenshot-container">
+             <img src="../src/images/Screenshot 2026-01-09 124852.png" alt="Add Teacher Page">
+        </div>
+        <p>
+            To onboard a faculty member, click the <span class="ui-tag"><i class="bi bi-person-plus-fill"></i> Add Teacher</span> button located at the top right of the dashboard.
+        </p>
+        <p>
+            Fill in the required details in the form. Ensure that you select the correct information from the predefined <span class="ui-tag"><i class="bi bi-caret-down-square"></i> Dropdown Options</span> (e.g., Department, Role) to maintain data consistency.
+        </p>
+        <div class="note-box">
+            <i class="bi bi-info-circle-fill me-2"></i> <strong>Note:</strong> Fields marked with an asterisk (*) are mandatory and cannot be left blank.
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2 id="edit_teacher">2.4 Edit Teacher Details</h2>
+        <div class="screenshot-container">
+             <img src="../src/images/Screenshot 2026-01-09 124812.png" alt="Edit Teacher Page">
+        </div>
+        <p>
+            This section allows users to modify existing teacher records. To update information:
+        </p>
+        <ol>
+            <li class="mb-2">Locate the teacher in the list.</li>
+            <li class="mb-2">Click the <span class="ui-tag"><i class="bi bi-pencil-square"></i> Edit</span> icon in the action column.</li>
+            <li>Make necessary changes and click <span class="ui-tag"><i class="bi bi-save"></i> Submit</span>.</li>
+        </ol>
+         
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>
+        mediumZoom('img', { margin: 24, background: '#fff' });
+    </script>
+</body>
+</html>
