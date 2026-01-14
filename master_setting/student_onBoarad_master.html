@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category Master - Master Settings</title>
+    <title>Student Onboarding - Master Settings</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -168,6 +168,7 @@
             display: block;
             cursor: zoom-in;
             min-height: 200px;
+            background-color: #f1f5f9;
         }
 
         /* Alert Box */
@@ -198,7 +199,7 @@
         </div>
 
         <a href="../master_setting/landingPage.html" class="back-btn">
-            <i class="bi bi-arrow-left"></i> Back to Matser Settings
+            <i class="bi bi-arrow-left"></i> Back to Master Settings
         </a>
 
         <div class="nav-section-title">Navigation</div>
@@ -207,10 +208,13 @@
                 <i class="bi bi-house"></i> Overview
             </a>
             <a class="nav-link-custom" href="#list">
-                <i class="bi bi-tags"></i> Category List
+                <i class="bi bi-mortarboard-fill"></i> Student List
             </a>
             <a class="nav-link-custom" href="#add">
-                <i class="bi bi-plus-square"></i> Add Category
+                <i class="bi bi-file-earmark-arrow-up-fill"></i> Import Students
+            </a>
+            <a class="nav-link-custom" href="#correction">
+                <i class="bi bi-journal-check"></i> Course Correction
             </a>
         </div>
 
@@ -222,15 +226,15 @@
     <main class="main-content">
         
         <header class="page-header" id="overview">
-            <div class="breadcrumb-text">Master Settings > General Configuration</div>
-            <h1>Category Master</h1>
-            <p class="lead text-muted">Manage system categories, groups, and bulk data organization.</p>
+            <div class="breadcrumb-text">Master Settings > Academic Administration</div>
+            <h1>Student Onboarding</h1>
+            <p class="lead text-muted">Manage student registration, import CSV data, and correct course allocations efficiently.</p>
         </header>
 
         <section class="mb-5">
-            <h3><i class="bi bi-1-circle text-primary me-2"></i>Accessing "Category"</h3>
+            <h3><i class="bi bi-1-circle text-primary me-2"></i>Accessing Student Onboard</h3>
             <p>
-                Navigate to the <strong>"Category"</strong> section in the master settings menu. Clicking this will direct the user to the main <strong>Category List Dashboard</strong>.
+                To manage student records, select the <strong>"Student Onboard"</strong> section from the Master Settings menu. This will grant you access to the main <strong>Students List</strong> dashboard.
             </p>
 
             <div class="browser-mockup">
@@ -239,21 +243,22 @@
                     <div class="dot dot-yellow"></div>
                     <div class="dot dot-green"></div>
                 </div>
-                <img src="../src/images/Screenshot 2026-01-10 185925.png" alt="Category Menu Access" class="zoomable">
+                <img src="../src/images/Screenshot 2026-01-14 172543.png" alt="Student Onboard Menu Access" class="zoomable">
             </div>
         </section>
 
         <section id="list" class="mb-5 pt-4">
-            <h2>Category List Dashboard</h2>
+            <h2>Students List Dashboard</h2>
             <p>
-                This interface displays all the categories currently present in the system.
+                The Students List provides a comprehensive view of all registered students. Authorized users can perform various administrative operations from this screen.
             </p>
             
             <div class="card bg-light border-0 p-3 mb-4 rounded-3">
                 <h6 class="fw-bold text-dark mb-2">Available Actions:</h6>
                 <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><i class="bi bi-plus-circle-fill text-primary me-2"></i> <strong>Add Category:</strong> Create a new category by clicking the "Add Category" button.</li>
-                    <li class="mb-2"><i class="bi bi-pencil-square text-warning me-2"></i> <strong>Edit Category:</strong> Modify an existing category's details by clicking the "Edit" button.</li>
+                    <li class="mb-2"><i class="bi bi-person-plus-fill text-primary me-2"></i> <strong>Add Student:</strong> Register a new student into the system.</li>
+                    <li class="mb-2"><i class="bi bi-pencil-square text-success me-2"></i> <strong>Edit/Delete:</strong> Update student details or remove records using the corresponding action buttons.</li>
+                    <li class="mb-2"><i class="bi bi-journal-plus text-warning me-2"></i> <strong>Add Course (Correction):</strong> Manually assign courses to students who made errors during the form fill-up process.</li>
                 </ul>
             </div>
 
@@ -263,34 +268,30 @@
                     <div class="dot dot-yellow"></div>
                     <div class="dot dot-green"></div>
                 </div>
-                 <img src="../src/images/Screenshot 2026-01-10 185946.png" alt="Category List Dashboard" class="zoomable">
+                 <img src="../src/images/Screenshot 2026-01-14 172620.png" alt="Student List Dashboard" class="zoomable">
             </div>
         </section>
 
         <hr class="my-5 border-light">
 
-        <section id="add" class="pt-4">
-            <h2>Add New Category</h2>
+        <section id="add" class="pt-4 mb-5">
+            <h2>Add Student (Import)</h2>
             <p>
-                The system provides flexible options for adding categories, supporting both individual entries and mass uploads.
+                The system provides a streamlined method to onboard students in bulk, ensuring efficiency during admission seasons.
             </p>
 
             <div class="row g-4 mt-2">
-                <div class="col-md-6">
-                     <h5 class="fw-bold text-primary"><i class="bi bi-pencil me-2"></i>Single Entry</h5>
-                     <p class="text-muted small">Manually add a single category via the input form.</p>
-                </div>
-                <div class="col-md-6">
-                    <h5 class="fw-bold text-success"><i class="bi bi-file-earmark-spreadsheet me-2"></i>Bulk Upload</h5>
-                    <p class="text-muted small">Add multiple categories simultaneously using the Bulk Upload option.</p>
+                <div class="col-md-12">
+                      <h5 class="fw-bold text-success"><i class="bi bi-filetype-csv me-2"></i>CSV File Upload</h5>
+                      <p class="text-muted">Click the "Add Student" button to access the upload interface. Here, you can onboard multiple students simultaneously by uploading a formatted <strong>CSV file</strong>.</p>
                 </div>
             </div>
 
             <div class="note-box">
-                <i class="bi bi-exclamation-triangle-fill fs-4"></i>
+                <i class="bi bi-exclamation-octagon-fill fs-4"></i>
                 <div>
-                    <strong>Upload Format:</strong><br>
-                    For bulk operations, please ensure the file is in <strong>Excel (.xlsx)</strong> format and matches the provided system template.
+                    <strong>Important Requirement:</strong><br>
+                    Ensure your data file is in <strong>.CSV</strong> format and strictly follows the system's column structure to avoid upload errors.
                 </div>
             </div>
 
@@ -300,7 +301,26 @@
                     <div class="dot dot-yellow"></div>
                     <div class="dot dot-green"></div>
                 </div>
-                 <img src="../src/images/Screenshot 2026-01-10 190025.png" alt="Add Category Interface" class="zoomable">
+                 <img src="../src/images/Screenshot 2026-01-14 172639.png" alt="Add Student CSV Upload" class="zoomable">
+            </div>
+        </section>
+
+        <section id="correction" class="pt-4">
+            <h2>Course Correction (Add Course Apply)</h2>
+            <p>
+                This feature is designed for administrative intervention when students select incorrect subjects or courses during their initial registration.
+            </p>
+            <p>
+                By clicking the <strong>"Course Apply"</strong> option next to a student's name in the list, an administrator can manually map the correct course to that student, overriding the previous erroneous selection.
+            </p>
+
+            <div class="browser-mockup mt-4">
+                <div class="browser-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                </div>
+                 <img src="../src/images/Screenshot 2026-01-14 172739.png" alt="Course Correction Interface" class="zoomable">
             </div>
         </section>
 

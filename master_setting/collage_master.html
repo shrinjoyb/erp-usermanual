@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category Master - Master Settings</title>
+    <title>College Master - Master Settings</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -168,6 +168,7 @@
             display: block;
             cursor: zoom-in;
             min-height: 200px;
+            background-color: #f1f5f9;
         }
 
         /* Alert Box */
@@ -198,7 +199,7 @@
         </div>
 
         <a href="../master_setting/landingPage.html" class="back-btn">
-            <i class="bi bi-arrow-left"></i> Back to Matser Settings
+            <i class="bi bi-arrow-left"></i> Back to Master settings
         </a>
 
         <div class="nav-section-title">Navigation</div>
@@ -207,10 +208,13 @@
                 <i class="bi bi-house"></i> Overview
             </a>
             <a class="nav-link-custom" href="#list">
-                <i class="bi bi-tags"></i> Category List
+                <i class="bi bi-buildings"></i> College List
             </a>
             <a class="nav-link-custom" href="#add">
-                <i class="bi bi-plus-square"></i> Add Category
+                <i class="bi bi-plus-circle"></i> Add College
+            </a>
+            <a class="nav-link-custom" href="#edit">
+                <i class="bi bi-pencil-square"></i> Edit Details
             </a>
         </div>
 
@@ -222,15 +226,15 @@
     <main class="main-content">
         
         <header class="page-header" id="overview">
-            <div class="breadcrumb-text">Master Settings > General Configuration</div>
-            <h1>Category Master</h1>
-            <p class="lead text-muted">Manage system categories, groups, and bulk data organization.</p>
+            <div class="breadcrumb-text">Master Settings > Institution Management</div>
+            <h1>College Master</h1>
+            <p class="lead text-muted">Manage affiliated colleges, update institution details, and maintain the central directory.</p>
         </header>
 
         <section class="mb-5">
-            <h3><i class="bi bi-1-circle text-primary me-2"></i>Accessing "Category"</h3>
+            <h3><i class="bi bi-1-circle text-primary me-2"></i>Accessing College Master</h3>
             <p>
-                Navigate to the <strong>"Category"</strong> section in the master settings menu. Clicking this will direct the user to the main <strong>Category List Dashboard</strong>.
+                To begin, navigate to the <strong>"College Master"</strong> section within the Master Settings. Clicking this option will grant access to the <strong>College List</strong> dashboard.
             </p>
 
             <div class="browser-mockup">
@@ -239,21 +243,22 @@
                     <div class="dot dot-yellow"></div>
                     <div class="dot dot-green"></div>
                 </div>
-                <img src="../src/images/Screenshot 2026-01-10 185925.png" alt="Category Menu Access" class="zoomable">
+                <img src="../src/images/Screenshot 2026-01-14 145319.png" alt="College Master Menu Access" class="zoomable">
             </div>
         </section>
 
         <section id="list" class="mb-5 pt-4">
-            <h2>Category List Dashboard</h2>
+            <h2>College List Dashboard</h2>
             <p>
-                This interface displays all the categories currently present in the system.
+                The dashboard provides a comprehensive view of all registered colleges.
             </p>
             
             <div class="card bg-light border-0 p-3 mb-4 rounded-3">
                 <h6 class="fw-bold text-dark mb-2">Available Actions:</h6>
                 <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><i class="bi bi-plus-circle-fill text-primary me-2"></i> <strong>Add Category:</strong> Create a new category by clicking the "Add Category" button.</li>
-                    <li class="mb-2"><i class="bi bi-pencil-square text-warning me-2"></i> <strong>Edit Category:</strong> Modify an existing category's details by clicking the "Edit" button.</li>
+                    <li class="mb-2"><i class="bi bi-plus-lg text-primary me-2"></i> <strong>Add College:</strong> Click the "Add College" button to register a new institution.</li>
+                    <li class="mb-2"><i class="bi bi-trash text-danger me-2"></i> <strong>Delete:</strong> Remove a college from the list using the delete option.</li>
+                    <li class="mb-2"><i class="bi bi-pencil text-success me-2"></i> <strong>Edit:</strong> Update existing details using the edit button.</li>
                 </ul>
             </div>
 
@@ -263,34 +268,34 @@
                     <div class="dot dot-yellow"></div>
                     <div class="dot dot-green"></div>
                 </div>
-                 <img src="../src/images/Screenshot 2026-01-10 185946.png" alt="Category List Dashboard" class="zoomable">
+                 <img src="../src/images/Screenshot 2026-01-14 145415.png" alt="College List Dashboard" class="zoomable">
             </div>
         </section>
 
         <hr class="my-5 border-light">
 
-        <section id="add" class="pt-4">
-            <h2>Add New Category</h2>
+        <section id="add" class="pt-4 mb-5">
+            <h2>Add New College</h2>
             <p>
-                The system provides flexible options for adding categories, supporting both individual entries and mass uploads.
+                Administrators can register colleges into the system using two methods:
             </p>
 
             <div class="row g-4 mt-2">
                 <div class="col-md-6">
-                     <h5 class="fw-bold text-primary"><i class="bi bi-pencil me-2"></i>Single Entry</h5>
-                     <p class="text-muted small">Manually add a single category via the input form.</p>
+                      <h5 class="fw-bold text-primary"><i class="bi bi-keyboard me-2"></i>Manual Entry</h5>
+                      <p class="text-muted small">Manually input the college name, code, and address in the provided form fields.</p>
                 </div>
                 <div class="col-md-6">
-                    <h5 class="fw-bold text-success"><i class="bi bi-file-earmark-spreadsheet me-2"></i>Bulk Upload</h5>
-                    <p class="text-muted small">Add multiple categories simultaneously using the Bulk Upload option.</p>
+                    <h5 class="fw-bold text-success"><i class="bi bi-upload me-2"></i>Bulk Upload</h5>
+                    <p class="text-muted small">Register multiple colleges at once by uploading a formatted data file.</p>
                 </div>
             </div>
 
             <div class="note-box">
                 <i class="bi bi-exclamation-triangle-fill fs-4"></i>
                 <div>
-                    <strong>Upload Format:</strong><br>
-                    For bulk operations, please ensure the file is in <strong>Excel (.xlsx)</strong> format and matches the provided system template.
+                    <strong>Format Requirement:</strong><br>
+                    The Bulk Upload feature exclusively supports <strong>Excel (.xlsx)</strong> format. Please download the sample template before uploading data.
                 </div>
             </div>
 
@@ -300,7 +305,26 @@
                     <div class="dot dot-yellow"></div>
                     <div class="dot dot-green"></div>
                 </div>
-                 <img src="../src/images/Screenshot 2026-01-10 190025.png" alt="Add Category Interface" class="zoomable">
+                 <img src="../src/images/Screenshot 2026-01-14 145536.png" alt="Add College Interface" class="zoomable">
+            </div>
+        </section>
+
+        <section id="edit" class="pt-4">
+            <h2>Edit College Details</h2>
+            <p>
+                If any institution's information changes, you can modify it easily.
+            </p>
+            <p>
+                Locate the specific college in the list and click the <strong>Edit</strong> option. This allows you to update the name, address, or other configuration settings without deleting the record.
+            </p>
+
+            <div class="browser-mockup mt-4">
+                <div class="browser-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                </div>
+                 <img src="../src/images/Screenshot 2026-01-14 151851.png" alt="Edit College Details" class="zoomable">
             </div>
         </section>
 
