@@ -1,0 +1,375 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Master - Master Settings</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            /* Primary Teal Color */
+            --primary-color: #16888a;
+            --sidebar-width: 280px;
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- Sidebar Styling --- */
+        .sidebar-wrapper {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: white;
+            border-right: 1px solid var(--border-color);
+            padding: 24px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .brand-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Back Button Style */
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            background: #fff;
+            border: 1px solid var(--primary-color);
+            transition: all 0.2s;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .nav-section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94a3b8;
+            font-weight: 700;
+            margin-bottom: 12px;
+            margin-top: 20px;
+        }
+
+        .nav-link-custom {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            margin-bottom: 4px;
+        }
+
+        .nav-link-custom:hover {
+            background-color: #f0fdfd;
+            color: var(--primary-color);
+        }
+
+        .nav-link-custom.active {
+            background-color: #effcfc;
+            color: var(--primary-color);
+            font-weight: 600;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        /* --- Main Content Styling --- */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 40px 60px;
+            max-width: 1100px;
+        }
+
+        /* Header Area */
+        .page-header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+        
+        .breadcrumb-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        h1 { font-weight: 800; letter-spacing: -0.5px; color: #0f172a; }
+        h2 { font-weight: 700; margin-top: 3rem; margin-bottom: 1rem; color: #1e293b; letter-spacing: -0.3px; }
+        h3 { font-weight: 600; font-size: 1.2rem; margin-top: 2rem; margin-bottom: 1rem; color: #334155; }
+        p, li { line-height: 1.8; color: #475569; font-size: 1.05rem; }
+
+        /* --- Browser Mockup --- */
+        .browser-mockup {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin: 30px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .browser-mockup:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .browser-header {
+            background: #f8fafc;
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-red { background: #ef4444; }
+        .dot-yellow { background: #f59e0b; }
+        .dot-green { background: #22c55e; }
+
+        .browser-mockup img {
+            width: 100%;
+            display: block;
+            cursor: zoom-in;
+            min-height: 200px;
+            background-color: #f1f5f9;
+        }
+
+        /* Alert Box */
+        .note-box {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            gap: 15px;
+            color: #92400e;
+            margin-top: 20px;
+        }
+
+        /* --- Excel Logo Container Style --- */
+        .excel-logo-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        
+        .excel-logo-container:hover {
+            transform: scale(1.02);
+            border-color: #107c41;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .sidebar-wrapper { transform: translateX(-100%); transition: transform 0.3s; }
+            .sidebar-wrapper.show { transform: translateX(0); }
+            .main-content { margin-left: 0; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar-wrapper">
+        <div class="brand-logo">
+            <i class="bi bi-gear-wide-connected text-primary"></i> Master Settings
+        </div>
+
+        <a href="../master_setting/landingPage.html" class="back-btn">
+            <i class="bi bi-arrow-left"></i> Back to Landing Page
+        </a>
+
+        <div class="nav-section-title">Navigation</div>
+        <div class="nav flex-column">
+            <a class="nav-link-custom active" href="#overview">
+                <i class="bi bi-house"></i> Overview
+            </a>
+            <a class="nav-link-custom" href="#list">
+                <i class="bi bi-card-list"></i> Paper List
+            </a>
+            <a class="nav-link-custom" href="#add">
+                <i class="bi bi-file-earmark-plus"></i> Add Paper
+            </a>
+        </div>
+
+        <div class="mt-auto pt-4 border-top">
+            <small class="text-muted">Documentation <br> Updated: Jan 2026</small>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+        <header class="page-header" id="overview">
+            <div class="breadcrumb-text">Master Settings > Examination</div>
+            <h1>Paper Master</h1>
+            <p class="lead text-muted">Manage examination papers, subject codes, credit details, and paper configurations.</p>
+        </header>
+
+        <section class="mb-5">
+            <h3><i class="bi bi-1-circle text-primary me-2"></i>Accessing Paper Master</h3>
+            <p>
+                To manage papers, navigate to the <strong>"Paper Master"</strong> section within the Master Settings. Clicking this option will redirect you to the <strong>Paper Master List</strong> dashboard.
+            </p>
+
+            <div class="browser-mockup">
+                <div class="browser-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                </div>
+                <img src="../src/images/Screenshot 2026-01-15 191351.png" alt="Paper Master Menu Access" class="zoomable">
+            </div>
+        </section>
+
+        <section id="list" class="mb-5 pt-4">
+            <h2>Paper Master List</h2>
+            <p>
+                The Dashboard provides a comprehensive list of all examination papers currently defined in the system.
+            </p>
+            
+            <div class="card bg-light border-0 p-3 mb-4 rounded-3">
+                <h6 class="fw-bold text-dark mb-2">Available Actions:</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><i class="bi bi-plus-lg text-primary me-2"></i> <strong>Add New:</strong> Click "Add Paper Master" to register a new subject or paper.</li>
+                    <li class="mb-2"><i class="bi bi-pencil-square text-success me-2"></i> <strong>Edit:</strong> Update paper codes, names, or credits using the edit button.</li>
+                    <li class="mb-2"><i class="bi bi-trash text-danger me-2"></i> <strong>Delete:</strong> Remove incorrect or unused papers from the directory.</li>
+                </ul>
+            </div>
+
+            <div class="browser-mockup">
+                <div class="browser-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                </div>
+                 <img src="../src/images/Screenshot 2026-01-15 191440.png" alt="Paper Master List" class="zoomable">
+            </div>
+        </section>
+
+        <hr class="my-5 border-light">
+
+        <section id="add" class="pt-4">
+            <h2>Add Paper Master & Bulk Upload</h2>
+            <p>
+                Administrators can define new papers manually or upload a large list via Excel to save time.
+            </p>
+
+            <div class="row g-4 mt-2 mb-4">
+                <div class="col-md-6">
+                      <h5 class="fw-bold text-primary"><i class="bi bi-keyboard me-2"></i>Manual Entry</h5>
+                      <p class="text-muted small">Type the specific paper name, code, and credits directly into the input field.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="fw-bold text-success"><i class="bi bi-file-earmark-spreadsheet me-2"></i>Bulk Upload</h5>
+                    <p class="text-muted small">Import multiple papers simultaneously using the bulk upload option.</p>
+                </div>
+            </div>
+
+            <div class="note-box mb-4">
+                <i class="bi bi-exclamation-triangle-fill fs-4"></i>
+                <div>
+                    <strong>Template Required:</strong><br>
+                    To ensure successful data import, please download and use the provided Excel template. Incorrect formats may cause upload errors.
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <h6 class="text-muted text-uppercase small fw-bold mb-3">Download Template Example:</h6>
+                
+                <a href="../src/file/paperMasterTemplate.xlsx" download="Paper_Master_Template.xlsx" class="text-decoration-none">
+                    <div class="excel-logo-container">
+                        <div class="text-center">
+                            <i class="bi bi-file-earmark-excel-fill text-success" style="font-size: 4rem;"></i>
+                            <div class="mt-2 fw-bold text-dark">Paper_Master.xlsx</div>
+                            <small class="text-muted">Click to Download</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="browser-mockup mt-4">
+                <div class="browser-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                </div>
+                 <img src="../src/images/Screenshot 2026-01-15 191512.png" alt="Add Paper Master Interface" class="zoomable">
+            </div>
+        </section>
+
+        <footer class="mt-5 pt-5 pb-5 text-center text-muted border-top">
+            <p>&copy; 2026 Master Settings Documentation</p>
+        </footer>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+    <script>
+        // Zoom configuration
+        mediumZoom('.zoomable', { margin: 40, background: '#ffffff' });
+
+        // Sidebar active state logic
+        const sections = document.querySelectorAll("section, header");
+        const navLi = document.querySelectorAll(".nav-link-custom");
+
+        window.onscroll = () => {
+            var current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLi.forEach((li) => {
+                li.classList.remove("active");
+                if (li.getAttribute("href").includes(current)) {
+                    li.classList.add("active");
+                }
+            });
+        };
+    </script>
+</body>
+</html>

@@ -39,8 +39,9 @@
             padding-left: 45px;
             height: 50px;
             border-radius: 25px;
-            border: 2px solid #ccecec;
-            background-color: #f0f9f9;
+            border: 2px solid #94a3b8;
+            background-color: #f8fafc;
+            color: #0f172a;
             transition: all 0.3s ease;
         }
         .search-wrapper input:focus {
@@ -55,6 +56,7 @@
             transform: translateY(-50%);
             color: #16888a;
             font-size: 1.2rem;
+            font-weight: bold;
         }
 
         /* Table Design */
@@ -90,7 +92,7 @@
             background-color: #e0f2f2;
         }
 
-        /* Action Buttons (Table) */
+        /* Action Buttons */
         .btn-view {
             background-color: #fff;
             border: 1px solid #16888a;
@@ -109,7 +111,7 @@
             box-shadow: 0 4px 6px rgba(22, 136, 138, 0.2);
         }
 
-        /* Overview Button Style */
+        /* Overview Button */
         .btn-overview {
             background-color: #16888a; 
             color: white;
@@ -138,6 +140,66 @@
             font-size: 0.85rem;
             font-weight: 700;
         }
+
+        /* Back Link */
+        .back-link-custom {
+            color: #0f172a;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+        }
+        .back-link-custom:hover {
+            color: #16888a;
+        }
+
+        /* Pagination CSS */
+        .pagination-container {
+            padding: 15px 20px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .pagination .page-link {
+            border-radius: 50%;
+            margin: 0 4px;
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #e2e8f0;
+            color: #0f172a;
+            border-color: #94a3b8;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #16888a;
+            border-color: #16888a;
+            color: white;
+            box-shadow: 0 4px 6px rgba(22, 136, 138, 0.3);
+        }
+
+        .pagination .page-item.disabled .page-link {
+            color: #cbd5e1;
+            background-color: #f8fafc;
+            border-color: #e2e8f0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
@@ -147,7 +209,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6 mb-3 mb-md-0">
                     <h2 class="header-title mb-0"><i class="bi bi-gear-fill me-2"></i>Master Settings</h2>
-                    <small class="text-muted">Total 53 Configuration Modules</small>
+                    <small class="text-muted fw-semibold">Total 11 Configuration Modules</small>
                 </div>
                 <div class="col-md-6">
                     <div class="search-wrapper">
@@ -162,15 +224,13 @@
     <div class="container">
         
         <div class="d-flex justify-content-between align-items-center mb-4">
-            
-            <a href="../homepage/index.html" class="text-decoration-none text-secondary fw-bold">
-                <i class="bi bi-arrow-left me-1"></i> Back to Home
+            <a href="../homepage/index.html" class="back-link-custom">
+                <i class="bi bi-arrow-left me-2 fs-5"></i> Back to Home
             </a>
 
             <a href="overview.html" class="btn-overview">
                 <i class="bi bi-info-circle-fill me-2"></i> Overview
             </a>
-
         </div>
 
         <div class="card">
@@ -188,130 +248,178 @@
                         <tr>
                             <td><span class="sl-badge">01</span></td>
                             <td class="fw-bold text-dark">University Master</td>
-                            <td class="text-muted small">
-                                Manage university registration, update details, and bulk import data via Excel.
-                            </td>
-                            <td class="text-center">
-                                <a href="university_master.html" class="btn-view text-decoration-none">
-                                    View <i class="bi bi-arrow-right ms-1"></i>
-                                </a>
-                            </td>
+                            <td class="text-muted small">Manage university registration, update details, and bulk import data via Excel.</td>
+                            <td class="text-center"><a href="university_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
                         </tr>
-
                         <tr>
                             <td><span class="sl-badge">02</span></td>
                             <td class="fw-bold text-dark">Application Events</td>
-                            <td class="text-muted small">
-                                Manage system-wide application events, schedules, and notifications.
-                            </td>
-                            <td class="text-center">
-                                <a href="application_events.html" class="btn-view text-decoration-none">
-                                    View <i class="bi bi-arrow-right ms-1"></i>
-                                </a>
-                            </td>
+                            <td class="text-muted small">Manage system-wide application events, schedules, and notifications.</td>
+                            <td class="text-center"><a href="application_events.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
                         </tr>
-
                         <tr>
                             <td><span class="sl-badge">03</span></td>
                             <td class="fw-bold text-dark">Role Master</td>
-                            <td class="text-muted small">
-                                Define user roles, manage permissions, and track member assignments via bulk upload.
-                            </td>
-                            <td class="text-center">
-                                <a href="role_master.html" class="btn-view text-decoration-none">
-                                    View <i class="bi bi-arrow-right ms-1"></i>
-                                </a>
-                            </td>
+                            <td class="text-muted small">Define user roles, manage permissions, and track member assignments via bulk upload.</td>
+                            <td class="text-center"><a href="role_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
                         </tr>
-
                         <tr>
                             <td><span class="sl-badge">04</span></td>
                             <td class="fw-bold text-dark">Category Master</td>
+                            <td class="text-muted small">Manage system categories, groups, and bulk data organization.</td>
+                            <td class="text-center"><a href="catagory_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">05</span></td>
+                            <td class="fw-bold text-dark">Payment Gateway</td>
+                            <td class="text-muted small">Configure payment providers, manage API keys, and update gateway settings.</td>
+                            <td class="text-center"><a href="paymentGetway.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">06</span></td>
+                            <td class="fw-bold text-dark">University Events</td>
+                            <td class="text-muted small">Schedule academic events, manage deadlines, and organize application timelines.</td>
+                            <td class="text-center"><a href="event_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">07</span></td>
+                            <td class="fw-bold text-dark">College Master</td>
+                            <td class="text-muted small">Manage affiliated colleges, update institution details, and maintain the central directory.</td>
+                            <td class="text-center"><a href="collage_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">08</span></td>
+                            <td class="fw-bold text-dark">Designation Master</td>
+                            <td class="text-muted small">Define job titles, manage employee ranks, and standardize organizational hierarchy.</td>
+                            <td class="text-center"><a href="designation_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">09</span></td>
+                            <td class="fw-bold text-dark">User Master</td>
+                            <td class="text-muted small">Manage system users, control access privileges, lock accounts, and perform bulk registration.</td>
+                            <td class="text-center"><a href="user_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">10</span></td>
+                            <td class="fw-bold text-dark">Student Onboard</td>
+                            <td class="text-muted small">Manage student registration, upload CSV data for bulk onboarding, and perform manual course correction.</td>
+                            <td class="text-center"><a href="student_onBoarad_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">11</span></td>
+                            <td class="fw-bold text-dark">University Category</td>
+                            <td class="text-muted small">Manage university-specific categories and toggle their active or inactive status.</td>
+                            <td class="text-center"><a href="universityCatagoryMAster.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">12</span></td>
+                            <td class="fw-bold text-dark">Student Paper Mapping</td>
+                            <td class="text-muted small">Map student papers, search by roll number, and manage enrollment records.</td>
+                            <td class="text-center"><a href="paperMapping_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">13</span></td>
+                            <td class="fw-bold text-dark">Status Code Master</td>
+                            <td class="text-muted small">Manage system status codes, define new codes, and maintain status definitions.</td>
+                            <td class="text-center"><a href="statusCode_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">14</span></td>
+                            <td class="fw-bold text-dark">Academic Session</td>
+                            <td class="text-muted small">Manage academic calendars, define session timelines, and organize curriculum schedules.</td>
+                            <td class="text-center"><a href="academicSession_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">15</span></td>
+                            <td class="fw-bold text-dark">Paper Type</td>
+                            <td class="text-muted small">Define examination paper types, manage lists, and perform bulk uploads via Excel.</td>
+                            <td class="text-center"><a href="paperMapping_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">16</span></td>
+                            <td class="fw-bold text-dark">Course Stream Master</td>
+                            <td class="text-muted small">Manage academic streams, define codes, and perform bulk uploads via Excel template.</td>
+                            <td class="text-center"><a href="courseStream_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">17</span></td>
+                            <td class="fw-bold text-dark">Stream Name</td>
+                            <td class="text-muted small">Define specific stream names, manage nomenclature, and perform bulk uploads via Excel.</td>
+                            <td class="text-center"><a href="streamName_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">18</span></td>
+                            <td class="fw-bold text-dark">Course Category</td>
+                            <td class="text-muted small">Define course categories, organize academic levels, and manage program types.</td>
+                            <td class="text-center"><a href="courseCatagory_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">19</span></td>
+                            <td class="fw-bold text-dark">Award Type</td>
+                            <td class="text-muted small">Manage award categories, define recognition types, and organize merit classifications.</td>
+                            <td class="text-center"><a href="awardType_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">20</span></td>
+                            <td class="fw-bold text-dark">Course Master</td>
+                            <td class="text-muted small">Manage courses, define credits, and organize academic programs.</td>
+                            <td class="text-center"><a href="courseMasterSettings.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">21</span></td>
+                            <td class="fw-bold text-dark">Discipline Master</td>
+                            <td class="text-muted small">Manage academic disciplines, study fields, and categorize subject areas.</td>
+                            <td class="text-center"><a href="designation_master.html" class="btn-view text-decoration-none">View <i class="bi bi-arrow-right ms-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">22</span></td>
+                            <td class="fw-bold text-dark">Paper Master</td>
                             <td class="text-muted small">
-                                Manage system categories, groups, and bulk data organization.
+                                Manage examination papers, define codes, credits, and perform bulk uploads via Excel.
                             </td>
                             <td class="text-center">
-                                <a href="catagory_master.html" class="btn-view text-decoration-none">
+                                <a href="paper_master.html" class="btn-view text-decoration-none">
                                     View <i class="bi bi-arrow-right ms-1"></i>
                                 </a>
                             </td>
                         </tr>
                         <tr>
-                           <td><span class="sl-badge">05</span></td>
-                                 <td class="fw-bold text-dark">Payment Gateway</td>
-                                  <td class="text-muted small">
-                                     Configure payment providers, manage API keys, and update gateway settings.
-                           </td>
-                                 <td class="text-center">
-                       <a href="paymentGetway.html" class="btn-view text-decoration-none">
-                     View <i class="bi bi-arrow-right ms-1"></i>
-                          </a>
-                             </td>
-                    
-                            </tr>
-                            <tr>
-                               <td><span class="sl-badge">06</span></td>
-                                   <td class="fw-bold text-dark">University Events</td>
-                                          <td class="text-muted small">
-                                                     Schedule academic events, manage deadlines, and organize application timelines.
-                                  </td>
-                                            <td class="text-center">
-                                                 <a href="event_master.html" class="btn-view text-decoration-none">
-                                                      View <i class="bi bi-arrow-right ms-1"></i>
-                                                     </a>
-                                                           </td>
-                                                             </tr>
-                                <tr>
-                                   <td><span class="sl-badge">07</span></td>
-                                    <td class="fw-bold text-dark">College Master</td>
-                                     <td class="text-muted small">
-                                        Manage affiliated colleges, update institution details, and maintain the central directory.
-                                    </td>
-                                      <td class="text-center">
-                                          <a href="collage_master.html" class="btn-view text-decoration-none">
-                                            View <i class="bi bi-arrow-right ms-1"></i>
-                                          </a>
-                                            </td>
-                                               </tr>
-                                               <tr>
-                           <td><span class="sl-badge">08</span></td>
-                                   <td class="fw-bold text-dark">Designation Master</td>
-                                      <td class="text-muted small">
-                          Define job titles, manage employee ranks, and standardize organizational hierarchy.
-                                 </td>
-                             <td class="text-center">
-                                   <a href="designation_master.html" class="btn-view text-decoration-none">
+                            <td><span class="sl-badge">23</span></td>
+                            <td class="fw-bold text-dark">Activity Master</td>
+                            <td class="text-muted small">
+                                Manage system activities, define operational tasks, and perform bulk uploads via Excel.
+                            </td>
+                            <td class="text-center">
+                                <a href="activity_master.html" class="btn-view text-decoration-none">
                                     View <i class="bi bi-arrow-right ms-1"></i>
-                                   </a>
-                                   </td>
-                                        </tr>
-                                        <tbody id="tableBody">
-                                              <tr>
-                                                 <td><span class="sl-badge">09</span></td>
-                                                     <td class="fw-bold text-dark">User Master</td>
-                                                          <td class="text-muted small">
-                                                             Manage system users, control access privileges, lock accounts, and perform bulk registration.
-                                              </td>
-                                                      <td class="text-center">
-                                                             <a href="user_master.html" class="btn-view text-decoration-none">
-                                                      View <i class="bi bi-arrow-right ms-1"></i>
-                                                        </a>
-                                                                  </td>
-                                                                           </tr>
-                                                                           <tr>
-        <td><span class="sl-badge">10</span></td>
-        <td class="fw-bold text-dark">Student Onboard</td>
-        <td class="text-muted small">
-            Manage student registration, upload CSV data for bulk onboarding, and perform manual course correction.
-        </td>
-        <td class="text-center">
-            <a href="student_onBoarad_master.html" class="btn-view text-decoration-none">
-                View <i class="bi bi-arrow-right ms-1"></i>
-            </a>
-        </td>
-    </tr>
-
-                        </tbody>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="sl-badge">24</span></td>
+                            <td class="fw-bold text-dark">Upload Student Details</td>
+                            <td class="text-muted small">
+                                Upload comprehensive student data in bulk using Excel format.
+                            </td>
+                            <td class="text-center">
+                                <a href="studentDetails_master.html" class="btn-view text-decoration-none">
+                                    View <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        ```<tr>
+                            <td><span class="sl-badge">25</span></td>
+                            <td class="fw-bold text-dark">Fees Types</td>
+                            <td class="text-muted small">
+                                Manage fee categories, toggle active status, and perform bulk uploads via Excel.
+                            </td>
+                            <td class="text-center">
+                                <a href="feesType_master.html" class="btn-view text-decoration-none">
+                                    View <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
 
@@ -321,6 +429,16 @@
                 </div>
                 <h5 class="text-muted">No module found</h5>
                 <p class="text-secondary small">Try searching with a different keyword.</p>
+            </div>
+
+            <div class="pagination-container" id="paginationContainer">
+                <div class="text-dark small fw-semibold">
+                    Showing <span id="startRange" class="fw-bold">1</span> to <span id="endRange" class="fw-bold">10</span> of <span id="totalRows" class="fw-bold">21</span> entries
+                </div>
+                <nav>
+                    <ul class="pagination mb-0" id="paginationControls">
+                        </ul>
+                </nav>
             </div>
         </div>
 
@@ -332,40 +450,144 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        document.getElementById('searchInput').addEventListener('keyup', function() {
-            let filter = this.value.toLowerCase();
-            let tableBody = document.getElementById('tableBody');
-            let rows = tableBody.getElementsByTagName('tr');
-            let hasResult = false;
+        // --- Updated Logic with Trim & Ignore Case ---
+        const rowsPerPage = 10;
+        let currentPage = 1;
+        let allRows = [];
 
-            for (let i = 0; i < rows.length; i++) {
-                let nameColumn = rows[i].getElementsByTagName('td')[1]; // Index 1 is Module Name
-                
-                if (nameColumn) {
-                    let textValue = nameColumn.textContent || nameColumn.innerText;
-                    
-                    if (textValue.toLowerCase().indexOf(filter) > -1) {
-                        rows[i].style.display = ""; // Show
-                        hasResult = true;
-                    } else {
-                        rows[i].style.display = "none"; // Hide
-                    }
-                }
-            }
-
-            // Toggle "No Results" message
-            let noResultsDiv = document.getElementById('noResults');
-            let tableElement = document.getElementById('masterTable');
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableBody = document.getElementById('tableBody');
+            allRows = Array.from(tableBody.getElementsByTagName('tr'));
             
-            // Only show 'No Results' if there were rows to begin with but none matched
-            if (!hasResult && rows.length > 0) {
+            updateTable();
+
+            document.getElementById('searchInput').addEventListener('keyup', function() {
+                currentPage = 1; 
+                updateTable();
+            });
+        });
+
+        function updateTable() {
+            // 1. Get input, Trim, Lowercase
+            const filter = document.getElementById('searchInput').value.trim().toLowerCase();
+            const noResultsDiv = document.getElementById('noResults');
+            const tableElement = document.getElementById('masterTable');
+            const paginationContainer = document.getElementById('paginationContainer');
+
+            // 2. Filter Rows Robustly
+            let visibleRows = allRows.filter(row => {
+                let nameColumn = row.getElementsByTagName('td')[1];
+                if (nameColumn) {
+                    // Trim cell text as well to handle table formatting spaces
+                    let textValue = (nameColumn.textContent || nameColumn.innerText).trim().toLowerCase();
+                    return textValue.includes(filter); // Using includes for better match
+                }
+                return false;
+            });
+
+            // 3. Handle Visibility
+            if (visibleRows.length === 0 && allRows.length > 0) {
                 noResultsDiv.classList.remove('d-none');
                 tableElement.classList.add('d-none');
+                paginationContainer.classList.add('d-none');
+                return;
             } else {
                 noResultsDiv.classList.add('d-none');
                 tableElement.classList.remove('d-none');
+                paginationContainer.classList.remove('d-none');
             }
-        });
+
+            // 4. Pagination
+            const totalPages = Math.ceil(visibleRows.length / rowsPerPage);
+            
+            if (currentPage > totalPages) currentPage = totalPages;
+            if (currentPage < 1) currentPage = 1;
+
+            const startIndex = (currentPage - 1) * rowsPerPage;
+            const endIndex = startIndex + rowsPerPage;
+
+            allRows.forEach(row => row.style.display = 'none'); 
+            visibleRows.slice(startIndex, endIndex).forEach(row => {
+                row.style.display = ''; 
+            });
+
+            document.getElementById('startRange').innerText = visibleRows.length > 0 ? startIndex + 1 : 0;
+            document.getElementById('endRange').innerText = Math.min(endIndex, visibleRows.length);
+            document.getElementById('totalRows').innerText = visibleRows.length;
+
+            renderPagination(totalPages);
+        }
+
+        function renderPagination(totalPages) {
+            const paginationControls = document.getElementById('paginationControls');
+            paginationControls.innerHTML = ''; 
+
+            // First Page
+            let firstClass = currentPage === 1 ? 'disabled' : '';
+            paginationControls.innerHTML += `
+                <li class="page-item ${firstClass}">
+                    <a class="page-link" href="#" onclick="changePage(1); return false;" title="First Page">
+                        <i class="bi bi-chevron-double-left"></i>
+                    </a>
+                </li>
+            `;
+
+            // Previous
+            let prevClass = currentPage === 1 ? 'disabled' : '';
+            paginationControls.innerHTML += `
+                <li class="page-item ${prevClass}">
+                    <a class="page-link" href="#" onclick="changePage(${currentPage - 1}); return false;" title="Previous">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+            `;
+
+            // Numbers
+            for (let i = 1; i <= totalPages; i++) {
+                let activeClass = i === currentPage ? 'active' : '';
+                paginationControls.innerHTML += `
+                    <li class="page-item ${activeClass}">
+                        <a class="page-link" href="#" onclick="changePage(${i}); return false;">${i}</a>
+                    </li>
+                `;
+            }
+
+            // Next
+            let nextClass = currentPage === totalPages ? 'disabled' : '';
+            paginationControls.innerHTML += `
+                <li class="page-item ${nextClass}">
+                    <a class="page-link" href="#" onclick="changePage(${currentPage + 1}); return false;" title="Next">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+            `;
+
+            // Last Page
+            let lastClass = currentPage === totalPages ? 'disabled' : '';
+            paginationControls.innerHTML += `
+                <li class="page-item ${lastClass}">
+                    <a class="page-link" href="#" onclick="changePage(${totalPages}); return false;" title="Last Page">
+                        <i class="bi bi-chevron-double-right"></i>
+                    </a>
+                </li>
+            `;
+        }
+
+        function changePage(newPage) {
+            // Re-apply filter to calculate total pages correctly during navigation
+            const filter = document.getElementById('searchInput').value.trim().toLowerCase();
+            let visibleCount = allRows.filter(row => {
+                let text = row.getElementsByTagName('td')[1].innerText.trim().toLowerCase();
+                return text.includes(filter);
+            }).length;
+            
+            let maxPage = Math.ceil(visibleCount / rowsPerPage);
+
+            if (newPage >= 1 && newPage <= maxPage) {
+                currentPage = newPage;
+                updateTable();
+            }
+        }
     </script>
 
 </body>
